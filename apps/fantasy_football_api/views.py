@@ -6,11 +6,11 @@ def index(request):
     scores = {}
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': 1})
         scores[week] = response.json()
         scores = scores[week]
         scoreboard = scores['scoreboard']
-        print(scoreboard)
+        print(scores)
     context = {
         'response': response,
         'scores': scores,

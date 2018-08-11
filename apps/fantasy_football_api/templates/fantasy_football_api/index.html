@@ -6,24 +6,349 @@
 
 
 {% block content %}
-<h6>{{scoreboard.matchups.0.teams.0}}</h6>
-<h6>Home: {{scoreboard.matchups.0.teams.0.home}}</h6>
-<h6>Team ID: {{scoreboard.matchups.0.teams.0.teamId}}</h6>
-<h6>Score: {{ scoreboard.matchups.0.teams.0.score }}</h6>
-<h6>Team: {{ scoreboard.matchups.0.teams.0.team }}</h6>
-<h6>Division: <b>{{ scoreboard.matchups.0.teams.0.team.division.divisionName }}</b></h6>
-<h6>Team Name: <b>{{ scoreboard.matchups.0.teams.0.team.teamNickname.title }}</b></h6>
-<h6>Waiver Rank: <b>{{ scoreboard.matchups.0.teams.0.team.waiverRank }}</b></h6>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
-    <h6>Match Up Period: {{ scores.scoreboard.matchupPeriodId }}</h6>
-    <h6>Teams: {{ scores.scoredboard.matchups.teams.teamNickname }}</h6>
-    {% for team in scores.scoreboard.matchups.teams %}
-    <h6>{{ team.team_nickname }}</h6>
-    {% endfor %}
-    {{ scores }}
-    {% for team in scores.matchups %}
-    <h6>Team: {{ team }}</h6>
-    {% endfor %}
+        {% if scoreboard.matchups.0.teams.0.logoUrl %}
+        <img src="{{scoreboard.matchups.0.teams.0.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.0.teams.0.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.0.teams.0.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.0.teams.0.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.0.teams.0.team.teamLocation.title }} {{ scoreboard.matchups.0.teams.0.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.0.teams.0.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.0.teams.0.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.0.teams.0.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.0.teams.0.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.0.teams.0.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.0.teams.0.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.0.teams.0.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.0.teams.0.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.0.teams.0.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.0.teams.0.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.0.teams.0.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.0.teams.0.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.0.teams.0.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.0.teams.0.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.0.teams.0.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.0.teams.0.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.0.teams.0.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.0.teams.0.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.0.teams.0.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.0.teams.0.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.0.teams.0.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.0.teams.0.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.0.teams.0.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.1.teams.0.logoUrl %}
+        <img src="{{scoreboard.matchups.1.teams.0.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.1.teams.0.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.1.teams.0.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.1.teams.0.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.1.teams.0.team.teamLocation.title }} {{ scoreboard.matchups.1.teams.0.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.1.teams.0.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.1.teams.0.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.1.teams.0.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.1.teams.0.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.1.teams.0.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.1.teams.0.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.1.teams.0.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.1.teams.0.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.1.teams.0.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.1.teams.0.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.1.teams.0.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.1.teams.0.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.1.teams.0.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.1.teams.0.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.1.teams.0.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.1.teams.0.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.1.teams.0.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.1.teams.0.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.1.teams.0.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.1.teams.0.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.1.teams.0.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.1.teams.0.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.1.teams.0.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.2.teams.0.logoUrl %}
+        <img src="{{scoreboard.matchups.2.teams.0.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.2.teams.0.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.2.teams.0.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.2.teams.0.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.2.teams.0.team.teamLocation.title }} {{ scoreboard.matchups.2.teams.0.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.2.teams.0.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.2.teams.0.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.2.teams.0.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.2.teams.0.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.2.teams.0.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.2.teams.0.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.2.teams.0.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.2.teams.0.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.2.teams.0.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.2.teams.0.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.2.teams.0.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.2.teams.0.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.2.teams.0.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.2.teams.0.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.2.teams.0.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.2.teams.0.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.2.teams.0.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.2.teams.0.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.2.teams.0.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.2.teams.0.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.2.teams.0.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.2.teams.0.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.2.teams.0.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.3.teams.0.logoUrl %}
+        <img src="{{scoreboard.matchups.3.teams.0.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.3.teams.0.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.3.teams.0.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.3.teams.0.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.3.teams.0.team.teamLocation.title }} {{ scoreboard.matchups.3.teams.0.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.3.teams.0.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.3.teams.0.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.3.teams.0.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.3.teams.0.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.3.teams.0.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.3.teams.0.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.3.teams.0.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.3.teams.0.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.3.teams.0.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.3.teams.0.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.3.teams.0.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.3.teams.0.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.3.teams.0.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.3.teams.0.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.3.teams.0.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.3.teams.0.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.3.teams.0.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.3.teams.0.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.3.teams.0.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.3.teams.0.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.3.teams.0.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.3.teams.0.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.3.teams.0.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.4.teams.0.logoUrl %}
+        <img src="{{scoreboard.matchups.4.teams.0.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.4.teams.0.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.4.teams.0.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.4.teams.0.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.4.teams.0.team.teamLocation.title }} {{ scoreboard.matchups.4.teams.0.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.4.teams.0.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.4.teams.0.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.4.teams.0.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.4.teams.0.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.4.teams.0.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.4.teams.0.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.4.teams.0.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.4.teams.0.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.4.teams.0.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.4.teams.0.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.4.teams.0.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.4.teams.0.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.4.teams.0.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.4.teams.0.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.4.teams.0.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.4.teams.0.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.4.teams.0.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.4.teams.0.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.4.teams.0.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.4.teams.0.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.4.teams.0.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.4.teams.0.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.4.teams.0.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.5.teams.0.logoUrl %}
+        <img src="{{scoreboard.matchups.5.teams.0.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.5.teams.0.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.5.teams.0.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.5.teams.0.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.5.teams.0.team.teamLocation.title }} {{ scoreboard.matchups.5.teams.0.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.5.teams.0.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.5.teams.0.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.5.teams.0.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.5.teams.0.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.5.teams.0.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.5.teams.0.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.5.teams.0.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.5.teams.0.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.5.teams.0.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.5.teams.0.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.5.teams.0.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.5.teams.0.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.5.teams.0.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.5.teams.0.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.5.teams.0.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.5.teams.0.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.5.teams.0.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.5.teams.0.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.5.teams.0.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.5.teams.0.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.5.teams.0.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.5.teams.0.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.5.teams.0.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.1.teams.1.logoUrl %}
+        <img src="{{scoreboard.matchups.1.teams.1.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.1.teams.1.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.1.teams.1.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.1.teams.1.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.1.teams.1.team.teamLocation.title }} {{ scoreboard.matchups.1.teams.1.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.1.teams.1.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.1.teams.1.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.1.teams.1.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.1.teams.1.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.1.teams.1.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.1.teams.1.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.1.teams.1.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.1.teams.1.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.1.teams.1.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.1.teams.1.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.1.teams.1.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.1.teams.1.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.1.teams.1.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.1.teams.1.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.1.teams.1.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.1.teams.1.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.1.teams.1.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.1.teams.1.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.1.teams.1.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.1.teams.1.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.1.teams.1.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.1.teams.1.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.1.teams.1.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.2.teams.1.logoUrl %}
+        <img src="{{scoreboard.matchups.2.teams.1.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.2.teams.1.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.2.teams.1.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.2.teams.1.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.2.teams.1.team.teamLocation.title }} {{ scoreboard.matchups.2.teams.1.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.2.teams.1.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.2.teams.1.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.2.teams.1.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.2.teams.1.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.2.teams.1.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.2.teams.1.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.2.teams.1.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.2.teams.1.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.2.teams.1.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.2.teams.1.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.2.teams.1.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.2.teams.1.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.2.teams.1.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.2.teams.1.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.2.teams.1.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.2.teams.1.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.2.teams.1.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.2.teams.1.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.2.teams.1.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.2.teams.1.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.2.teams.1.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.2.teams.1.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.2.teams.1.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.3.teams.1.logoUrl %}
+        <img src="{{scoreboard.matchups.3.teams.1.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.3.teams.1.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.3.teams.1.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.3.teams.1.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.3.teams.1.team.teamLocation.title }} {{ scoreboard.matchups.3.teams.1.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.3.teams.1.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.3.teams.1.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.3.teams.1.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.3.teams.1.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.3.teams.1.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.3.teams.1.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.3.teams.1.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.3.teams.1.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.3.teams.1.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.3.teams.1.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.3.teams.1.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.3.teams.1.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.3.teams.1.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.3.teams.1.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.3.teams.1.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.3.teams.1.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.3.teams.1.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.3.teams.1.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.3.teams.1.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.3.teams.1.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.3.teams.1.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.3.teams.1.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.3.teams.1.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.4.teams.1.logoUrl %}
+        <img src="{{scoreboard.matchups.4.teams.1.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.4.teams.1.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.4.teams.1.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.4.teams.1.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.4.teams.1.team.teamLocation.title }} {{ scoreboard.matchups.4.teams.1.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.4.teams.1.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.4.teams.1.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.4.teams.1.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.4.teams.1.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.4.teams.1.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.4.teams.1.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.4.teams.1.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.4.teams.1.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.4.teams.1.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.4.teams.1.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.4.teams.1.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.4.teams.1.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.4.teams.1.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.4.teams.1.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.4.teams.1.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.4.teams.1.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.4.teams.1.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.4.teams.1.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.4.teams.1.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.4.teams.1.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.4.teams.1.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.4.teams.1.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.4.teams.1.team.record.overallStanding }}</b></h6>
+        <br>
+        {% if scoreboard.matchups.5.teams.1.logoUrl %}
+        <img src="{{scoreboard.matchups.5.teams.1.logoUrl}}" alt="Logo">
+        {% endif %}
+        <h6>Team ID: {{scoreboard.matchups.5.teams.1.teamId}}</h6>
+        <h6>Score: {{ scoreboard.matchups.5.teams.1.score }}</h6>
+        <h6>Division: <b>{{ scoreboard.matchups.5.teams.1.team.division.divisionName }}</b></h6>
+        <h6>Team: <b>{{ scoreboard.matchups.5.teams.1.team.teamLocation.title }} {{ scoreboard.matchups.5.teams.1.team.teamNickname.title }}</b></h6>
+        <h6>Waiver Rank: <b>{{ scoreboard.matchups.5.teams.1.team.waiverRank }}</b></h6>
+        <h6>Points Against: <b>{{ scoreboard.matchups.5.teams.1.team.record.pointsAgainst }}</b></h6>
+        <h6>Overall Losses: <b>{{ scoreboard.matchups.5.teams.1.team.record.overallLosses }}</b></h6>
+        <h6>Overall Percentage: <b>{{ scoreboard.matchups.5.teams.1.team.record.overallPercentage }}</b></h6>
+        <h6>Home Percentage: <b>{{ scoreboard.matchups.5.teams.1.team.record.homePercentage }}</b></h6>
+        <h6>Home Ties: <b>{{ scoreboard.matchups.5.teams.1.team.record.homeTies }}</b></h6>
+        <h6>Away Ties: <b>{{ scoreboard.matchups.5.teams.1.team.record.awayTies }}</b></h6>
+        <h6>Division Ties: <b>{{ scoreboard.matchups.5.teams.1.team.record.divisionTies }}</b></h6>
+        <h6>Overall Wins: <b>{{ scoreboard.matchups.5.teams.1.team.record.overallWins }}</b></h6>
+        <h6>Points For: <b>{{ scoreboard.matchups.5.teams.1.team.record.pointsFor}}</b></h6>
+        <h6>Division Standing: <b>{{ scoreboard.matchups.5.teams.1.team.record.divisionStanding }}</b></h6>
+        <h6>Away Percentage: <b>{{ scoreboard.matchups.5.teams.1.team.record.awayPercentage }}</b></h6>
+        <h6>Division Percentage: <b>{{ scoreboard.matchups.5.teams.1.team.record.divisionPercentage }}</b></h6>
+        <h6>Division Wins: <b>{{ scoreboard.matchups.5.teams.1.team.record.divisionWins }}</b></h6>
+        <h6>Division Losses: <b>{{ scoreboard.matchups.5.teams.1.team.record.divisionLosses }}</b></h6>
+        <h6>Home Wins: <b>{{ scoreboard.matchups.5.teams.1.team.record.homeWins }}</b></h6>
+        <h6>Away Wins: <b>{{ scoreboard.matchups.5.teams.1.team.record.awayWins }}</b></h6>
+        <h6>Home Losses: <b>{{ scoreboard.matchups.5.teams.1.team.record.homeLosses }}</b></h6>
+        <h6>Away Losses: <b>{{ scoreboard.matchups.5.teams.1.team.record.awayLosses }}</b></h6>
+        <h6>Overall Ties: <b>{{ scoreboard.matchups.5.teams.1.team.record.overallTies }}</b></h6>
+        <h6>Streak Length: <b>{{ scoreboard.matchups.5.teams.1.team.record.streakLength }}</b></h6>
+        <h6>Streak Type: <b>{{ scoreboard.matchups.5.teams.1.team.record.streakType }}</b></h6>
+        <h6>Overall Standing: <b>{{ scoreboard.matchups.5.teams.1.team.record.overallStanding }}</b></h6>
+        <br>
+        {{ scores }}
 </div>
 {% endblock %}
