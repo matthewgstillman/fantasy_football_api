@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock%}
+
+
+{% block content %}
+<h6>{{scoreboard.matchups.0.teams.0}}</h6>
+<h6>Home: {{scoreboard.matchups.0.teams.0.home}}</h6>
+<h6>Team ID: {{scoreboard.matchups.0.teams.0.teamId}}</h6>
+<h6>Score: {{ scoreboard.matchups.0.teams.0.score }}</h6>
+<h6>Team: {{ scoreboard.matchups.0.teams.0.team }}</h6>
+<h6>Division: <b>{{ scoreboard.matchups.0.teams.0.team.division.divisionName }}</b></h6>
+<h6>Team Name: <b>{{ scoreboard.matchups.0.teams.0.team.teamNickname.title }}</b></h6>
+<h6>Waiver Rank: <b>{{ scoreboard.matchups.0.teams.0.team.waiverRank }}</b></h6>
+<div class="container">
+    <h1>ESPN Fantasy Football API</h1>
+    <h6>Match Up Period: {{ scores.scoreboard.matchupPeriodId }}</h6>
+    <h6>Teams: {{ scores.scoredboard.matchups.teams.teamNickname }}</h6>
+    {% for team in scores.scoreboard.matchups.teams %}
+    <h6>{{ team.team_nickname }}</h6>
+    {% endfor %}
+    {{ scores }}
+    {% for team in scores.matchups %}
+    <h6>Team: {{ team }}</h6>
+    {% endfor %}
+</div>
+{% endblock %}

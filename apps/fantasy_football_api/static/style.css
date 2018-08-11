@@ -1,0 +1,16 @@
+body{
+    background-color: #0C2340;
+    color: #FB4F14;
+}
+
+.container{
+     background-color: #FB4F14;
+     color: white;
+     border-radius: 10px;
+     margin-bottom: 10px;
+     border: 2px solid black;
+}
+
+a{
+    color: white;
+}
