@@ -6,10 +6,12 @@
 
 
 {% block content %}
+<a href="/">Go Back</a>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
         {% if scoreboard.matchups.0.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.0.teams.0.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.0.teams.0.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.0.teams.0.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.0.teams.0.score }}</h6>
@@ -41,6 +43,7 @@
         <br>
         {% if scoreboard.matchups.1.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.1.teams.0.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.1.teams.0.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.1.teams.0.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.1.teams.0.score }}</h6>
@@ -72,6 +75,7 @@
         <br>
         {% if scoreboard.matchups.2.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.2.teams.0.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.2.teams.0.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.2.teams.0.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.2.teams.0.score }}</h6>
@@ -103,6 +107,7 @@
         <br>
         {% if scoreboard.matchups.3.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.3.teams.0.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.3.teams.0.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.3.teams.0.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.3.teams.0.score }}</h6>
@@ -134,6 +139,7 @@
         <br>
         {% if scoreboard.matchups.4.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.4.teams.0.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.4.teams.0.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.4.teams.0.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.4.teams.0.score }}</h6>
@@ -165,6 +171,7 @@
         <br>
         {% if scoreboard.matchups.5.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.5.teams.0.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.5.teams.0.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.5.teams.0.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.5.teams.0.score }}</h6>
@@ -196,6 +203,7 @@
         <br>
         {% if scoreboard.matchups.1.teams.1.logoUrl %}
         <img src="{{scoreboard.matchups.1.teams.1.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.1.teams.1.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.1.teams.1.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.1.teams.1.score }}</h6>
@@ -227,6 +235,7 @@
         <br>
         {% if scoreboard.matchups.2.teams.1.logoUrl %}
         <img src="{{scoreboard.matchups.2.teams.1.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.2.teams.1.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.2.teams.1.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.2.teams.1.score }}</h6>
@@ -258,6 +267,7 @@
         <br>
         {% if scoreboard.matchups.3.teams.1.logoUrl %}
         <img src="{{scoreboard.matchups.3.teams.1.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.3.teams.1.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.3.teams.1.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.3.teams.1.score }}</h6>
@@ -289,6 +299,7 @@
         <br>
         {% if scoreboard.matchups.4.teams.1.logoUrl %}
         <img src="{{scoreboard.matchups.4.teams.1.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.4.teams.1.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.4.teams.1.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.4.teams.1.score }}</h6>
@@ -320,6 +331,7 @@
         <br>
         {% if scoreboard.matchups.5.teams.1.logoUrl %}
         <img src="{{scoreboard.matchups.5.teams.1.logoUrl}}" alt="Logo">
+        <h1>{{scoreboard.matchups.5.teams.1.logoUrl}}</h1>
         {% endif %}
         <h6>Team ID: {{scoreboard.matchups.5.teams.1.teamId}}</h6>
         <h6>Score: {{ scoreboard.matchups.5.teams.1.score }}</h6>

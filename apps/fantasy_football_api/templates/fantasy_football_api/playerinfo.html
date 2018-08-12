@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Player Info</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h1>ESPN Fantasy Football API - Player Info</h1>
+    <h1>Player Info</h1>
+    <h6>Name : {{ players.playerInfo.players.0.player.firstName }} {{ players.playerInfo.players.0.player.lastName }}</h6>
+    <h6>Draft Rank: {{ players.playerInfo.players.0.player.draftRank }}</h6>
+    <h6>Percent Owned: {{ players.playerInfo.players.0.player.percentOwned }}</h6>
+    <h6>Percent Started : {{ players.playerInfo.players.0.player.percentStarted }}%</h6>
+    <h6>Pro Team ID : {{ players.playerInfo.players.0.player.proTeamId }}</h6>
+    <h6>Value : {{ players.playerInfo.players.0.player.value }}</h6>
+    <h6>{{ players.playerInfo.players.0.player }}</h6>
+    <h6>{{ players.playerInfo.players.0 }}</h6>
+</div>
+{% endblock %}
