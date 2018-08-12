@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+import json
 import requests
 import espnff
 from espnff import League
+import nflgame
 
 # Create your views here.
 def index(request):
@@ -40,26 +42,22 @@ def boxscore(request):
     }
     return render(request, 'fantasy_football_api/boxscore.html', context)
 
-#Different API
-# def league(request):
-#     league_id = 446679
-#     year = 2018
-#     league = League(league_id, year)
-#     team1 = league.teams[0]
-#     print(league.teams)
-#     print(league)
-#     print(team1)
-#     context = {
-#         'league': league,
-#         'team1': team1
-#     }
-#     return render(request, 'fantasy_football_api/league.html', context)
+def leaguesettings(request):
+    for week in range(1, 17):
+        response = requests.get('http://games.espn.com/ffl/api/v2/leagueSettings', 
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
+        league_settings = response.json()
+        print("League Settings: " + str(league_settings))
+    context = {
+        'league_settings': league_settings,
+    }
+    return render(request, 'fantasy_football_api/leaguesettings.html', context)
 
 
 def playerinfo(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                        params={'leagueId': 446679, 'playerId': 18311,'seasonId': 2018, 'matchupPeriodId': 1})
+                        params={'leagueId': 446679, 'playerId': 18311,'seasonId': 2018, 'matchupPeriodId': week})
         print(response.json())
         players = response.json()
         # scores = scores[week]
@@ -72,3 +70,42 @@ def playerinfo(request):
         'players': players,
     }
     return render(request, 'fantasy_football_api/playerinfo.html', context)
+
+
+def schedule(request):
+    for week in range(1, 17):
+        response = requests.get('http://games.espn.com/ffl/api/v2/schedule', 
+                        params={'leagueId': 446679, 'seasonId': 2018})
+        print(response.json())
+        schedule = response.json()
+    context = {
+        'schedule': schedule,
+    }
+    return render(request, 'fantasy_football_api/schedule.html', context)
+
+
+def seasonstats(request):
+    response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&week=1&format=json')
+    season_stats = response.json()
+    print(season_stats)
+    for key, value in season_stats.items():
+        print("{{key}}:{{value}}")
+    context = {
+        'season_stats': season_stats,
+    }
+    return render(request, 'fantasy_football_api/seasonstats.html', context)
+
+
+def teams(request):
+    for week in range(1, 17):
+        response = requests.get('http://games.espn.com/ffl/api/v2/teams', 
+                        params={'leagueId': 446679, 'seasonId': 2018})
+        print(response.json())
+        teams = response.json()
+        print("Teams: " + str(teams))
+    context = {
+        'teams': teams,
+    }
+    return render(request, 'fantasy_football_api/teams.html', context)
+
+

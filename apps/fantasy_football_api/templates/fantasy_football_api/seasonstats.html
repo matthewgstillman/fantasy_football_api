@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Season Stats</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h6>Week: {{ season_stats.week }}</h6>
+    <h6>Name: {{ season_stats.players.0.name }}</h6>
+    <h6>Position: {{ season_stats.players.0.position }}</h6>
+    <h6>Team: {{ season_stats.players.0.teamAbbr }}</h6>
+    <h6>Season: {{ season_stats.season }}</h6>
+    <h6>Weekly Projected Points: {{ season_stats.players.0.weekProjectedPts }}</h6>
+    <h6>Week Points: {{ season_stats.players.0.weekPts }}</h6>
+    <h6>Season Points: {{ season_stats.players.0.seasonPts }}</h6>
+    <br>
+    <h6>Week: {{ season_stats.week }}</h6>
+    <h6>Name: {{ season_stats.players.1.name }}</h6>
+    <h6>Position: {{ season_stats.players.1.position }}</h6>
+    <h6>Team: {{ season_stats.players.1.teamAbbr }}</h6>
+    <h6>Season: {{ season_stats.season }}</h6>
+    <h6>Weekly Projected Points: {{ season_stats.players.1.weekProjectedPts }}</h6>
+    <h6>Week Points: {{ season_stats.players.1.weekPts }}</h6>
+    <h6>Season Points: {{ season_stats.players.1.seasonPts }}</h6>
+    <br>
+    <h6>Week: {{ season_stats.week }}</h6>
+    <h6>Name: {{ season_stats.players.2.name }}</h6>
+    <h6>Position: {{ season_stats.players.2.position }}</h6>
+    <h6>Team: {{ season_stats.players.2.teamAbbr }}</h6>
+    <h6>Season: {{ season_stats.season }}</h6>
+    <h6>Weekly Projected Points: {{ season_stats.players.2.weekProjectedPts }}</h6>
+    <h6>Week Points: {{ season_stats.players.2.weekPts }}</h6>
+    <h6>Season Points: {{ season_stats.players.2.seasonPts }}</h6>
+    <br>
+    <h6>Week: {{ season_stats.week }}</h6>
+    <h6>Name: {{ season_stats.players.3.name }}</h6>
+    <h6>Position: {{ season_stats.players.3.position }}</h6>
+    <h6>Team: {{ season_stats.players.3.teamAbbr }}</h6>
+    <h6>Season: {{ season_stats.season }}</h6>
+    <h6>Weekly Projected Points: {{ season_stats.players.3.weekProjectedPts }}</h6>
+    <h6>Week Points: {{ season_stats.players.3.weekPts }}</h6>
+    <h6>Season Points: {{ season_stats.players.3.seasonPts }}</h6>
+    <br>
+    <h6>Stats: {{ season_stats }}</h6>
+    <h1>ESPN Fantasy Football API - Season Stats</h1>
+</div>
+{% endblock %}
