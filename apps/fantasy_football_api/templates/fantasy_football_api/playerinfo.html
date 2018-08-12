@@ -6,6 +6,7 @@
 
 
 {% block content %}
+<a href="/">Go Back</a>
 <div class="container">
     <h1>ESPN Fantasy Football API - Player Info</h1>
     <h1>Player Info</h1>
@@ -13,6 +14,9 @@
     <h6>Draft Rank: {{ players.playerInfo.players.0.player.draftRank }}</h6>
     <h6>Percent Owned: {{ players.playerInfo.players.0.player.percentOwned }}</h6>
     <h6>Percent Started : {{ players.playerInfo.players.0.player.percentStarted }}%</h6>
+    <h6>Droppable : {{ players.playerInfo.players.0.player.droppable }}</h6>
+    <h6>Health Status : {{ players.playerInfo.players.0.player.healthStatus }}</h6>
+    <h6>Active : {{ players.playerInfo.players.0.player.isActive }}</h6>
     <h6>Pro Team ID : {{ players.playerInfo.players.0.player.proTeamId }}</h6>
     <h6>Value : {{ players.playerInfo.players.0.player.value }}</h6>
     <h6>{{ players.playerInfo.players.0.player }}</h6>

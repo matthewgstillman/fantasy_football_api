@@ -59,7 +59,7 @@ def boxscore(request):
 def playerinfo(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                        params={'leagueId': 446679, 'playerId': 18029,'seasonId': 2018, 'matchupPeriodId': 1})
+                        params={'leagueId': 446679, 'playerId': 18311,'seasonId': 2018, 'matchupPeriodId': 1})
         print(response.json())
         players = response.json()
         # scores = scores[week]
