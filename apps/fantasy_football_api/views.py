@@ -88,8 +88,6 @@ def seasonstats(request):
     response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&week=1&format=json')
     season_stats = response.json()
     print(season_stats)
-    for key, value in season_stats.items():
-        print("{{key}}:{{value}}")
     context = {
         'season_stats': season_stats,
     }
