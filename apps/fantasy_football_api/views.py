@@ -94,8 +94,10 @@ def seasonstats(request):
         position = i['position']
         team = i['teamAbbr']
         projected_points = i['weekProjectedPts']
-        players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points))
-        print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points))
+        week_pts = i['weekPts']
+        season_pts = i['seasonPts']
+        players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
+        print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
         # print(players)
     context = {
         'name': name,
@@ -103,7 +105,9 @@ def seasonstats(request):
         'position': position,
         'projected_points': projected_points,
         'season_stats': season_stats,
+        'season_pts': season_pts,
         'team': team,
+        'week_pts': week_pts,
     }
     return render(request, 'fantasy_football_api/seasonstats.html', context)
 
