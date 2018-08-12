@@ -88,8 +88,22 @@ def seasonstats(request):
     response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&week=1&format=json')
     season_stats = response.json()
     print(season_stats)
+    players = []
+    for i in season_stats['players']:
+        name = i['name']
+        position = i['position']
+        team = i['teamAbbr']
+        projected_points = i['weekProjectedPts']
+        players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points))
+        print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points))
+        # print(players)
     context = {
+        'name': name,
+        'players': players,
+        'position': position,
+        'projected_points': projected_points,
         'season_stats': season_stats,
+        'team': team,
     }
     return render(request, 'fantasy_football_api/seasonstats.html', context)
 

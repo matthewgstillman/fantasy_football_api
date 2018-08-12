@@ -7,6 +7,9 @@
 
 {% block content %}
 <div class="container">
+    {% for player in players %}
+        <h6>{{ player }}</h6>
+    {% endfor %}
     <h6>Week: {{ season_stats.week }}</h6>
     <h6>Name: {{ season_stats.players.0.name }}</h6>
     <h6>Position: {{ season_stats.players.0.position }}</h6>
