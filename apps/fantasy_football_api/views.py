@@ -184,3 +184,13 @@ def teamcrime(request):
         # 'crime_category': crime_category,
     }
     return render(request, 'fantasy_football_api/teamcrime.html', context)
+
+def teamarrests(request):
+    url = ('http://nflarrest.com/api/v1/team/topPlayers/den')
+    response = requests.get(url)
+    teamarrests = response.json()
+    print(teamarrests)
+    context = {
+        'teamarrests': teamarrests,
+    }
+    return render(request, 'fantasy_football_api/teamarrests.html', context)
