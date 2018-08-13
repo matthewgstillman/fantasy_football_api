@@ -88,6 +88,20 @@ def leaguesettings(request):
     }
     return render(request, 'fantasy_football_api/leaguesettings.html', context)
 
+def mostarrests(request):
+    url = ('http://nflarrest.com/api/v1/player')
+    response = requests.get(url)
+    mostarrests = response.json()
+    num = 0
+    # for key, value in mostarrests[num]:
+    #     print value
+    #     num += 1
+    print mostarrests
+    context = {
+        'mostarrests': mostarrests,
+    }
+    return render(request, 'fantasy_football_api/mostarrests.html', context)
+
 
 def playerinfo(request):
     for week in range(1, 17):
@@ -186,11 +200,33 @@ def teamcrime(request):
     return render(request, 'fantasy_football_api/teamcrime.html', context)
 
 def teamarrests(request):
-    url = ('http://nflarrest.com/api/v1/team/topPlayers/den')
-    response = requests.get(url)
-    teamarrests = response.json()
+    base_url = ('http://nflarrest.com/api/v1/team/topPlayers/')
+    # for i in teams:
+    #     url = url + str(teams[i])
+    #     print(url)
+    first_response = requests.get(base_url)
+    teamarrests = first_response.json()
     print(teamarrests)
+    teams = ['ari', 'atl','bal','buf','car','chi', 'cin', 'cle','dal','den','det','gb','hou','ind','jax','kc','lac','lar','mia','min','ne','no','oak','phi','pit','sea','sf','tb','was']
+    # print(teams)
+    teamarrestsarray = []
+    for team in teams:
+        url = str(base_url) + str(team)
+        print("URL: " + str(url))
+        response = requests.get(url)
+        team_url = response.json()
+        #Logic I added that didn't work
+        if team_url[0]['Name']:
+            name = team_url[0]['Name']
+            print(name)
+            teamarrestsarray.extend(name)
+        # print("Team URL: " + str(team_url))
+    # print (teamarrestsarray)
     context = {
+        'name': name,
+        'team_url': team_url,
+        'teams': teams,
+        'teamarrestsarray': teamarrestsarray,
         'teamarrests': teamarrests,
     }
     return render(request, 'fantasy_football_api/teamarrests.html', context)

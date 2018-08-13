@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^boxscore$', views.boxscore, name="boxscore"),
     url(r'^crime$', views.crime, name="crime"),
     url(r'^leaguesettings$', views.leaguesettings, name="leaguesettings"),
+    url(r'^mostarrests$', views.mostarrests, name="mostarrests"),
     url(r'^playerinfo$', views.playerinfo, name="playerinfo"),
     url(r'^schedule$', views.schedule, name="schedule"),
     url(r'^seasonstats$', views.seasonstats, name="seasonstats"),

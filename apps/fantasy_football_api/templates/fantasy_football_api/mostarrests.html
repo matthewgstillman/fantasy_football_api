@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Most Arrests</title>
+{% endblock%}
+
+
+{% block content %}
+<a href="/">Go Back</a>
+<div class="container">
+    <h1>Most Arrests</h1>
+    {% for key, value in mostarrests.0.items %}
+    <tr>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+    <h6>Name: {{ mostarrests.0.Name }}</h6>
+    <h6>City: {{ mostarrests.0.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.0.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.0.Team }}</h6>
+    <h6>Position: {{ mostarrests.0.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.0.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.1.Name }}</h6>
+    <h6>City: {{ mostarrests.1.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.1.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.1.Team }}</h6>
+    <h6>Position: {{ mostarrests.1.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.1.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.2.Name }}</h6>
+    <h6>City: {{ mostarrests.2.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.2.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.2.Team }}</h6>
+    <h6>Position: {{ mostarrests.2.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.2.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.3.Name }}</h6>
+    <h6>City: {{ mostarrests.3.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.3.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.3.Team }}</h6>
+    <h6>Position: {{ mostarrests.3.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.3.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.4.Name }}</h6>
+    <h6>City: {{ mostarrests.4.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.4.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.4.Team }}</h6>
+    <h6>Position: {{ mostarrests.4.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.4.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.5.Name }}</h6>
+    <h6>City: {{ mostarrests.5.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.5.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.5.Team }}</h6>
+    <h6>Position: {{ mostarrests.5.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.5.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.6.Name }}</h6>
+    <h6>City: {{ mostarrests.6.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.6.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.6.Team }}</h6>
+    <h6>Position: {{ mostarrests.6.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.6.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.7.Name }}</h6>
+    <h6>City: {{ mostarrests.7.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.7.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.7.Team }}</h6>
+    <h6>Position: {{ mostarrests.7.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.7.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.8.Name }}</h6>
+    <h6>City: {{ mostarrests.8.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.8.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.8.Team }}</h6>
+    <h6>Position: {{ mostarrests.8.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.8.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.9.Name }}</h6>
+    <h6>City: {{ mostarrests.9.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.9.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.9.Team }}</h6>
+    <h6>Position: {{ mostarrests.9.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.9.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.10.Name }}</h6>
+    <h6>City: {{ mostarrests.10.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.10.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.10.Team }}</h6>
+    <h6>Position: {{ mostarrests.10.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.10.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.11.Name }}</h6>
+    <h6>City: {{ mostarrests.11.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.11.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.11.Team }}</h6>
+    <h6>Position: {{ mostarrests.11.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.11.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.12.Name }}</h6>
+    <h6>City: {{ mostarrests.12.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.12.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.12.Team }}</h6>
+    <h6>Position: {{ mostarrests.12.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.12.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.13.Name }}</h6>
+    <h6>City: {{ mostarrests.13.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.13.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.13.Team }}</h6>
+    <h6>Position: {{ mostarrests.13.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.13.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.14.Name }}</h6>
+    <h6>City: {{ mostarrests.14.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.14.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.14.Team }}</h6>
+    <h6>Position: {{ mostarrests.14.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.14.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.15.Name }}</h6>
+    <h6>City: {{ mostarrests.15.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.15.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.15.Team }}</h6>
+    <h6>Position: {{ mostarrests.15.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.15.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.16.Name }}</h6>
+    <h6>City: {{ mostarrests.16.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.16.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.16.Team }}</h6>
+    <h6>Position: {{ mostarrests.16.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.16.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.17.Name }}</h6>
+    <h6>City: {{ mostarrests.17.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.17.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.17.Team }}</h6>
+    <h6>Position: {{ mostarrests.17.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.17.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.18.Name }}</h6>
+    <h6>City: {{ mostarrests.18.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.18.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.18.Team }}</h6>
+    <h6>Position: {{ mostarrests.18.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.18.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.19.Name }}</h6>
+    <h6>City: {{ mostarrests.19.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.19.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.19.Team }}</h6>
+    <h6>Position: {{ mostarrests.19.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.19.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.20.Name }}</h6>
+    <h6>City: {{ mostarrests.20.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.20.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.20.Team }}</h6>
+    <h6>Position: {{ mostarrests.20.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.20.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.21.Name }}</h6>
+    <h6>City: {{ mostarrests.21.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.21.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.21.Team }}</h6>
+    <h6>Position: {{ mostarrests.21.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.21.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.22.Name }}</h6>
+    <h6>City: {{ mostarrests.22.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.22.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.22.Team }}</h6>
+    <h6>Position: {{ mostarrests.22.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.22.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.23.Name }}</h6>
+    <h6>City: {{ mostarrests.23.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.23.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.23.Team }}</h6>
+    <h6>Position: {{ mostarrests.23.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.23.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.24.Name }}</h6>
+    <h6>City: {{ mostarrests.24.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.24.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.24.Team }}</h6>
+    <h6>Position: {{ mostarrests.24.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.24.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.25.Name }}</h6>
+    <h6>City: {{ mostarrests.25.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.25.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.25.Team }}</h6>
+    <h6>Position: {{ mostarrests.25.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.25.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.26.Name }}</h6>
+    <h6>City: {{ mostarrests.26.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.26.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.26.Team }}</h6>
+    <h6>Position: {{ mostarrests.26.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.26.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.27.Name }}</h6>
+    <h6>City: {{ mostarrests.27.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.27.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.27.Team }}</h6>
+    <h6>Position: {{ mostarrests.27.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.27.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.28.Name }}</h6>
+    <h6>City: {{ mostarrests.28.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.28.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.28.Team }}</h6>
+    <h6>Position: {{ mostarrests.28.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.28.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.29.Name }}</h6>
+    <h6>City: {{ mostarrests.29.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.29.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.29.Team }}</h6>
+    <h6>Position: {{ mostarrests.29.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.29.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.30.Name }}</h6>
+    <h6>City: {{ mostarrests.30.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.30.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.30.Team }}</h6>
+    <h6>Position: {{ mostarrests.30.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.30.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.31.Name }}</h6>
+    <h6>City: {{ mostarrests.31.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.31.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.31.Team }}</h6>
+    <h6>Position: {{ mostarrests.31.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.31.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.32.Name }}</h6>
+    <h6>City: {{ mostarrests.32.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.32.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.32.Team }}</h6>
+    <h6>Position: {{ mostarrests.32.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.32.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.33.Name }}</h6>
+    <h6>City: {{ mostarrests.33.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.33.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.33.Team }}</h6>
+    <h6>Position: {{ mostarrests.33.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.33.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.34.Name }}</h6>
+    <h6>City: {{ mostarrests.34.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.34.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.34.Team }}</h6>
+    <h6>Position: {{ mostarrests.34.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.34.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.35.Name }}</h6>
+    <h6>City: {{ mostarrests.35.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.35.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.35.Team }}</h6>
+    <h6>Position: {{ mostarrests.35.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.35.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.36.Name }}</h6>
+    <h6>City: {{ mostarrests.36.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.36.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.36.Team }}</h6>
+    <h6>Position: {{ mostarrests.36.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.36.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.37.Name }}</h6>
+    <h6>City: {{ mostarrests.37.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.37.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.37.Team }}</h6>
+    <h6>Position: {{ mostarrests.37.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.37.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.38.Name }}</h6>
+    <h6>City: {{ mostarrests.38.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.38.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.38.Team }}</h6>
+    <h6>Position: {{ mostarrests.38.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.38.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.39.Name }}</h6>
+    <h6>City: {{ mostarrests.39.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.39.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.39.Team }}</h6>
+    <h6>Position: {{ mostarrests.39.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.39.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.40.Name }}</h6>
+    <h6>City: {{ mostarrests.40.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.40.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.40.Team }}</h6>
+    <h6>Position: {{ mostarrests.40.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.40.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.41.Name }}</h6>
+    <h6>City: {{ mostarrests.41.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.41.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.41.Team }}</h6>
+    <h6>Position: {{ mostarrests.41.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.41.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.42.Name }}</h6>
+    <h6>City: {{ mostarrests.42.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.42.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.42.Team }}</h6>
+    <h6>Position: {{ mostarrests.42.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.42.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.43.Name }}</h6>
+    <h6>City: {{ mostarrests.43.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.43.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.43.Team }}</h6>
+    <h6>Position: {{ mostarrests.43.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.43.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.44.Name }}</h6>
+    <h6>City: {{ mostarrests.44.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.44.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.44.Team }}</h6>
+    <h6>Position: {{ mostarrests.44.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.44.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.45.Name }}</h6>
+    <h6>City: {{ mostarrests.45.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.45.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.45.Team }}</h6>
+    <h6>Position: {{ mostarrests.45.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.45.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.46.Name }}</h6>
+    <h6>City: {{ mostarrests.46.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.46.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.46.Team }}</h6>
+    <h6>Position: {{ mostarrests.46.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.46.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.47.Name }}</h6>
+    <h6>City: {{ mostarrests.47.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.47.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.47.Team }}</h6>
+    <h6>Position: {{ mostarrests.47.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.47.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.48.Name }}</h6>
+    <h6>City: {{ mostarrests.48.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.48.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.48.Team }}</h6>
+    <h6>Position: {{ mostarrests.48.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.48.arrest_count }}</h6>
+    <br>
+    <h6>Name: {{ mostarrests.49.Name }}</h6>
+    <h6>City: {{ mostarrests.49.Team_city }}</h6>
+    <h6>Team Name: {{ mostarrests.49.Team_name }}</h6>
+    <h6>Team: {{ mostarrests.49.Team }}</h6>
+    <h6>Position: {{ mostarrests.49.Position }}</h6>
+    <h6>Arrest Count: {{ mostarrests.49.arrest_count }}</h6>
+    <br>
+    <h6>{{ mostarrests }}</h6>
+</div>
+{% endblock %}
