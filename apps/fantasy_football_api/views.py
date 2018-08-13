@@ -29,7 +29,6 @@ def crime(request):
     }
     return render(request, 'fantasy_football_api/crime.html', context)
 
-
 def index(request):
     scores = {}
     for week in range(1, 17):
@@ -164,3 +163,24 @@ def teams(request):
     return render(request, 'fantasy_football_api/teams.html', context)
 
 
+def teamcrime(request):
+    url = ('http://nflarrest.com/api/v1/team/')
+    response = requests.get(url)
+    teamcrime = response.json()
+    print(crime)
+
+    # for crime in crime[0]:
+    #     print(crime)
+    # category = crime[0]
+    # print("Category: " + str(category))
+    # categories = []
+    # for crime, i in crime:
+    #     crime_category = crime[i]['Category']
+    #     categories.append(crime_category)
+    #     print(crime_category)
+    #     i += 1
+    context = {
+        'teamcrime': teamcrime,
+        # 'crime_category': crime_category,
+    }
+    return render(request, 'fantasy_football_api/teamcrime.html', context)

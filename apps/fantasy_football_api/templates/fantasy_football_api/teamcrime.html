@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Team Crime</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h1>NFL Crime By Team</h1>
+    <h1>{{ teamcrime.0.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.0.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.0.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.0.Team_city }} {{ teamcrime.0.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.1.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.1.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.1.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.1.Team_city }} {{ teamcrime.1.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.2.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.2.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.2.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.2.Team_city }} {{ teamcrime.2.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.3.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.3.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.3.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.3.Team_city }} {{ teamcrime.3.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.4.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.4.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.4.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.4.Team_city }} {{ teamcrime.4.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.5.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.5.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.5.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.5.Team_city }} {{ teamcrime.5.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.6.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.6.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.6.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.6.Team_city }} {{ teamcrime.6.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.7.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.7.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.7.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.7.Team_city }} {{ teamcrime.7.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.8.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.8.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.8.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.8.Team_city }} {{ teamcrime.8.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.9.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.9.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.9.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.9.Team_city }} {{ teamcrime.9.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.10.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.10.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.10.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.10.Team_city }} {{ teamcrime.10.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.11.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.11.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.11.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.11.Team_city }} {{ teamcrime.11.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.12.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.12.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.12.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.12.Team_city }} {{ teamcrime.12.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.13.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.13.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.13.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.13.Team_city }} {{ teamcrime.13.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.14.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.14.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.14.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.14.Team_city }} {{ teamcrime.14.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.15.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.15.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.15.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.15.Team_city }} {{ teamcrime.15.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.16.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.16.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.16.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.16.Team_city }} {{ teamcrime.16.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.17.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.17.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.17.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.17.Team_city }} {{ teamcrime.17.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.18.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.18.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.18.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.18.Team_city }} {{ teamcrime.18.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.19.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.19.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.19.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.19.Team_city }} {{ teamcrime.19.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.20.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.20.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.20.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.20.Team_city }} {{ teamcrime.20.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.21.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.21.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.21.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.21.Team_city }} {{ teamcrime.21.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.22.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.22.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.22.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.22.Team_city }} {{ teamcrime.22.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.23.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.23.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.23.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.23.Team_city }} {{ teamcrime.23.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.24.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.24.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.24.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.24.Team_city }} {{ teamcrime.24.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.25.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.25.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.25.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.25.Team_city }} {{ teamcrime.25.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.26.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.26.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.26.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.26.Team_city }} {{ teamcrime.26.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.27.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.27.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.27.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.27.Team_city }} {{ teamcrime.27.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.28.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.28.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.28.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.28.Team_city }} {{ teamcrime.28.Team_name }}</h6>
+    <br>
+    <h1>{{ teamcrime.29.Team_preffered_name }}</h1>
+    <h6>Arrest Count: {{ teamcrime.29.arrest_count }}</h6>
+    <h6>Team Conference: {{ teamcrime.29.Team_Conference }}</h6>
+    <h6>Team City And Name: {{ teamcrime.29.Team_city }} {{ teamcrime.29.Team_name }}</h6>
+    <br>
+    {{ teamcrime }}
+</div>
+{% endblock %}

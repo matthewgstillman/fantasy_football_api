@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^schedule$', views.schedule, name="schedule"),
     url(r'^seasonstats$', views.seasonstats, name="seasonstats"),
     url(r'^teams$', views.teams, name="teams"),
+    url(r'^teamcrime$', views.teamcrime, name="teamcrime"),
 ]
