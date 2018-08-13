@@ -4,21 +4,57 @@ import requests
 import espnff
 from espnff import League
 import nflgame
+import wikipedia
 
 # Create your views here.
+def crime(request):
+    url = ('http://nflarrest.com/api/v1/crime')
+    response = requests.get(url)
+    crime = response.json()
+    print(crime)
+
+    # for crime in crime[0]:
+    #     print(crime)
+    # category = crime[0]
+    # print("Category: " + str(category))
+    # categories = []
+    # for crime, i in crime:
+    #     crime_category = crime[i]['Category']
+    #     categories.append(crime_category)
+    #     print(crime_category)
+    #     i += 1
+    context = {
+        'crime': crime,
+        # 'crime_category': crime_category,
+    }
+    return render(request, 'fantasy_football_api/crime.html', context)
+
+
 def index(request):
     scores = {}
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': 1})
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
         scores[week] = response.json()
         scores = scores[week]
         scoreboard = scores['scoreboard']
         # logoUrl = scoreboard.matchups[0].teams[0].logoUrl
         # print(logoUrl)
         print(scores)
-        # print(logoUrl)
+        matchups = scoreboard['matchups']
+        print("Matchups" + str(matchups))
+        # for i in matchups:
+            
+        # i = 0
+        # for i in matchups[i]:
+        #     print (i[0])
+        #     i += 1
+    # i = 0
+    # j = 0
+    # for team in scoreboard['matchups'][0]['teams'][0]['team']['teamLocation']['title']:
+    #     print (team)
     context = {
+        'matchups': matchups,
         'response': response,
         'scores': scores,
         'scoreboard': scoreboard,
@@ -91,6 +127,9 @@ def seasonstats(request):
     players = []
     for i in season_stats['players']:
         name = i['name']
+        #Adding Photo Via Wikipedia Page
+        # wiki_name = wikipedia.page(name + str("(American football)"))
+        # print("Wiki Name: " + str(wiki_name) + str("(American football)"))
         position = i['position']
         team = i['teamAbbr']
         projected_points = i['weekProjectedPts']
