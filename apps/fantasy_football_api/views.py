@@ -92,11 +92,12 @@ def mostarrests(request):
     url = ('http://nflarrest.com/api/v1/player')
     response = requests.get(url)
     mostarrests = response.json()
-    num = 0
-    # for key, value in mostarrests[num]:
-    #     print value
-    #     num += 1
-    print mostarrests
+    i = 0
+    for i in mostarrests:
+        print (i['Name'] +  str(i['Team']) + str(i['Position']) + str(i['Team_city']) + " Arrest Count: " + str(i['arrest_count']))
+    # i = 0
+    # for i in mostarrests[i]:
+    #     print i
     context = {
         'mostarrests': mostarrests,
     }
