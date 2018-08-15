@@ -12,20 +12,14 @@ def crime(request):
     response = requests.get(url)
     crime = response.json()
     print(crime)
-
-    # for crime in crime[0]:
-    #     print(crime)
-    # category = crime[0]
-    # print("Category: " + str(category))
-    # categories = []
-    # for crime, i in crime:
-    #     crime_category = crime[i]['Category']
-    #     categories.append(crime_category)
-    #     print(crime_category)
-    #     i += 1
+    for i in crime:
+        category = str(i['Category']).title()
+        arrest_count = str(i['arrest_count'])
+        print category, arrest_count
     context = {
         'crime': crime,
-        # 'crime_category': crime_category,
+        'category': category,
+        'arrest_count': arrest_count,
     }
     return render(request, 'fantasy_football_api/crime.html', context)
 
@@ -42,14 +36,6 @@ def index(request):
         print(scores)
         matchups = scoreboard['matchups']
         print("Matchups" + str(matchups))
-        # for i in matchups:
-            
-        # i = 0
-        # for i in matchups[i]:
-        #     print (i[0])
-        #     i += 1
-    # i = 0
-    # j = 0
     # for team in scoreboard['matchups'][0]['teams'][0]['team']['teamLocation']['title']:
     #     print (team)
     context = {
@@ -92,14 +78,17 @@ def mostarrests(request):
     url = ('http://nflarrest.com/api/v1/player')
     response = requests.get(url)
     mostarrests = response.json()
+    mostarrests_list = []
     i = 0
     for i in mostarrests:
-        print (i['Name'] +  str(i['Team']) + str(i['Position']) + str(i['Team_city']) + " Arrest Count: " + str(i['arrest_count']))
+        mostarrests_list.append(i['Name'] + " " + str(i['Team']) + " " + str(i['Position'])+ " " + str(i['Team_city']) + " " + str(i['Team_name']) + " Arrest Count: " + str(i['arrest_count']))
+        print (i['Name'] + " " + str(i['Team']) + " " + str(i['Position'])+ " " + str(i['Team_city']) + " " + str(i['Team_name']) + " Arrest Count: " + str(i['arrest_count']))
     # i = 0
     # for i in mostarrests[i]:
     #     print i
     context = {
         'mostarrests': mostarrests,
+        'mostarrests_list': mostarrests_list,
     }
     return render(request, 'fantasy_football_api/mostarrests.html', context)
 
@@ -182,21 +171,17 @@ def teamcrime(request):
     url = ('http://nflarrest.com/api/v1/team/')
     response = requests.get(url)
     teamcrime = response.json()
-    print(crime)
-
-    # for crime in crime[0]:
-    #     print(crime)
-    # category = crime[0]
-    # print("Category: " + str(category))
-    # categories = []
-    # for crime, i in crime:
-    #     crime_category = crime[i]['Category']
-    #     categories.append(crime_category)
-    #     print(crime_category)
-    #     i += 1
+    teamcrime_list = []
+    print(teamcrime)
+    for i in teamcrime:
+        team_city = i['Team_city']
+        team = i['Team_preffered_name']
+        arrest_count = i['arrest_count']
+        teamcrime_list.append(str(team) + " -  Arrest Count: " + str(arrest_count))
+        print str(team) + " - " + str(arrest_count)
     context = {
         'teamcrime': teamcrime,
-        # 'crime_category': crime_category,
+        'teamcrime_list': teamcrime_list,
     }
     return render(request, 'fantasy_football_api/teamcrime.html', context)
 

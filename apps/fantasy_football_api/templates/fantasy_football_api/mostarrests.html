@@ -359,6 +359,10 @@
     <h6>Position: {{ mostarrests.49.Position }}</h6>
     <h6>Arrest Count: {{ mostarrests.49.arrest_count }}</h6>
     <br>
+    {% for arrest in mostarrests_list %}
+    <h6>{{arrest}}</h6>
+    <br>
+    {% endfor %}
     <h6>{{ mostarrests }}</h6>
 </div>
 {% endblock %}

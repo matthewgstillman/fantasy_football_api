@@ -6,6 +6,7 @@
 
 
 {% block content %}
+<a href="/">Go Back</a>
 <div class="container">
     <h1>NFL Crime By Team</h1>
     <h1>{{ teamcrime.0.Team_preffered_name }}</h1>
@@ -158,6 +159,5 @@
     <h6>Team Conference: {{ teamcrime.29.Team_Conference }}</h6>
     <h6>Team City And Name: {{ teamcrime.29.Team_city }} {{ teamcrime.29.Team_name }}</h6>
     <br>
-    {{ teamcrime }}
 </div>
 {% endblock %}
