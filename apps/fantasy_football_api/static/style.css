@@ -15,6 +15,10 @@ body{
      border: 2px solid black;
 }
 
+#bronco nav{
+    background-color: #0C2340
+}
+
 .navbar{
     background-color: #0C2340; 
     color: #FB4F14;
