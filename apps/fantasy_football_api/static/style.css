@@ -1,3 +1,7 @@
+a{
+    color: white;
+}
+
 body{
     background-color: #0C2340;
     color: #FB4F14;
@@ -11,6 +15,7 @@ body{
      border: 2px solid black;
 }
 
-a{
-    color: white;
+.navbar{
+    background-color: #0C2340; 
+    color: #FB4F14;
 }
