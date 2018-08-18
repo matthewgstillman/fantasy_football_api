@@ -34,12 +34,17 @@ def index(request):
         # logoUrl = scoreboard.matchups[0].teams[0].logoUrl
         # print(logoUrl)
         print(scores)
-        matchups = scoreboard['matchups']
-        print("Matchups" + str(matchups))
+        # matchups = scoreboard['matchups']
+        # print("Matchups" + str(matchups))
+        # count1 = 0
+        # count2 = 0
+        # for team in matchups[int(count1)]['teams'][int(count2)]['team']['teamLocation']['title']:
+        #     print(team)
+        #     count1 += 1
     # for team in scoreboard['matchups'][0]['teams'][0]['team']['teamLocation']['title']:
     #     print (team)
     context = {
-        'matchups': matchups,
+        # 'matchups': matchups,
         'response': response,
         'scores': scores,
         'scoreboard': scoreboard,
@@ -50,7 +55,7 @@ def boxscore(request):
     scores = {}
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/boxscore', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': 1})
+                        params={'leagueId': 446679, 'seasonId': 2017, 'matchupPeriodId': 1})
         print(response.json())
         scores = response.json()
         # boxscores = boxscores[week]
@@ -96,7 +101,7 @@ def mostarrests(request):
 def playerinfo(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                        params={'leagueId': 446679, 'playerId': 18311,'seasonId': 2018, 'matchupPeriodId': week})
+                        params={'leagueId': 446679, 'playerId': 13982,'seasonId': 2018, 'matchupPeriodId': week})
         print(response.json())
         players = response.json()
         # scores = scores[week]
@@ -216,3 +221,20 @@ def teamarrests(request):
         'teamarrests': teamarrests,
     }
     return render(request, 'fantasy_football_api/teamarrests.html', context)
+
+
+def standings(request):
+    for week in range(1, 17):
+        response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
+        standings = response.json()
+        # matchups = standings['scoreboard']['matchups']
+        # print matchups
+        # teams = matchups['teams']
+        # print(teams)
+        # print("Week " + str(week) + " " + str(response) + str(standings))
+    context = {
+        # 'matchups': matchups,
+        'standings': standings,
+    }
+    return render(request, 'fantasy_football_api/standings.html', context)

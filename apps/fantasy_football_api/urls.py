@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^teamarrests$', views.teamarrests, name="teamarrests"),
     url(r'^teams$', views.teams, name="teams"),
     url(r'^teamcrime$', views.teamcrime, name="teamcrime"),
+    url(r'^standings$', views.standings, name="standings"),
 ]
