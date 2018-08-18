@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^schedule$', views.schedule, name="schedule"),
     url(r'^seasonstats$', views.seasonstats, name="seasonstats"),
     url(r'^teamarrests$', views.teamarrests, name="teamarrests"),
-    url(r'^teams$', views.teams, name="teams"),
+    url(r'^team$', views.team, name="team"),
     url(r'^teamcrime$', views.teamcrime, name="teamcrime"),
     url(r'^standings$', views.standings, name="standings"),
 ]

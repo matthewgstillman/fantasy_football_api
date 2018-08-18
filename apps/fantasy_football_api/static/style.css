@@ -15,6 +15,11 @@ body{
      border: 2px solid black;
 }
 
+.container img{
+    width: 60%;
+    height: auto;
+}
+
 #bronco nav{
     background-color: #0C2340
 }

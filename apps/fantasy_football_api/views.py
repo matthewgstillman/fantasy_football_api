@@ -102,16 +102,20 @@ def playerinfo(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
                         params={'leagueId': 446679, 'playerId': 13982,'seasonId': 2018, 'matchupPeriodId': week})
-        print(response.json())
         players = response.json()
-        # scores = scores[week]
-        # scoreboard = scores['scoreboard']
-        # logoUrl = scoreboard.matchups[0].teams[0].logoUrl
-        # print(logoUrl)
-        # print(scores)
-        # print(logoUrl)
+        first_name = players['playerInfo']['players'][0]['player']['firstName']
+        last_name = players['playerInfo']['players'][0]['player']['lastName']
+        player_name = str(first_name) + " " + str(last_name)
+        player_name_wiki = wikipedia.WikipediaPage(title=player_name)
+        player_name_wiki_content = player_name_wiki.content
+        player_name_wiki_images = player_name_wiki.images
+        image_urls = player_name_wiki_images
+    print(first_image_url)
     context = {
+        'player_name': player_name,
+        'image_urls': image_urls,
         'players': players,
+        'player_name': player_name,
     }
     return render(request, 'fantasy_football_api/playerinfo.html', context)
 
@@ -159,17 +163,23 @@ def seasonstats(request):
     return render(request, 'fantasy_football_api/seasonstats.html', context)
 
 
-def teams(request):
+def team(request):
     for week in range(1, 17):
-        response = requests.get('http://games.espn.com/ffl/api/v2/teams', 
-                        params={'leagueId': 446679, 'seasonId': 2018})
-        print(response.json())
+        response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
         teams = response.json()
-        print("Teams: " + str(teams))
+        scoreboard = teams['scoreboard']
+        matchups = scoreboard['matchups']
+        # teams = matchups[0]
+        # for i in range(0,13):
+        #     player_ids =  ['matchups'][0]
+        #     # ['matchups'][0]['teams'][0]['playerIDs']
+        #     print player_ids
     context = {
-        'teams': teams,
+        'matchups': matchups,
+        'scoreboard': scoreboard,
     }
-    return render(request, 'fantasy_football_api/teams.html', context)
+    return render(request, 'fantasy_football_api/team.html', context)
 
 
 def teamcrime(request):
