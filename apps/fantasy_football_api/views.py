@@ -31,11 +31,11 @@ def index(request):
         scores[week] = response.json()
         scores = scores[week]
         scoreboard = scores['scoreboard']
-        # logoUrl = scoreboard.matchups[0].teams[0].logoUrl
-        # print(logoUrl)
+        logoUrl = scoreboard.matchups[0].teams[0].logoUrl
+        print("Logo URL: " + str(logoUrl))
         print(scores)
-        # matchups = scoreboard['matchups']
-        # print("Matchups" + str(matchups))
+        matchups = scoreboard['matchups']
+        print("Matchups" + str(matchups))
         # count1 = 0
         # count2 = 0
         # for team in matchups[int(count1)]['teams'][int(count2)]['team']['teamLocation']['title']:
@@ -44,7 +44,7 @@ def index(request):
     # for team in scoreboard['matchups'][0]['teams'][0]['team']['teamLocation']['title']:
     #     print (team)
     context = {
-        # 'matchups': matchups,
+        'matchups': matchups,
         'response': response,
         'scores': scores,
         'scoreboard': scoreboard,
@@ -164,17 +164,12 @@ def seasonstats(request):
 
 
 def team(request):
-    for week in range(1, 17):
-        response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
-        teams = response.json()
-        scoreboard = teams['scoreboard']
-        matchups = scoreboard['matchups']
-        # teams = matchups[0]
-        # for i in range(0,13):
-        #     player_ids =  ['matchups'][0]
-        #     # ['matchups'][0]['teams'][0]['playerIDs']
-        #     print player_ids
+    response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
+                    params={'leagueId': 446679, 'seasonId': 2018,'matchupPeriodId': 1})
+    teams = response.json()
+    scoreboard = teams['scoreboard']
+    matchups = scoreboard['matchups']
+    # player_ids = scoreboard['matchups'][0]['teams'][1]['playerIDs']
     context = {
         'matchups': matchups,
         'scoreboard': scoreboard,
