@@ -44,21 +44,15 @@ def index(request):
                 players = matchup['teams'][0]['playerIDs']
                 for player in players:
                     print("Player ID: "+ str(player))
+                    player_id_array.append(player)
+                print("PLayer ID Array: " + str(player_id_array))
                 team_matchup = matchup['teams'][0]
                 print("Team Matchup: " + str(team_matchup))
                 team = matchup['teams'][0]['team']
                 team_array.append(team)
                 # print ("Team: " + str(team))
                 # player_id = team
-                # print("Player ID: " + str(player_id))
-                for team in team_matchup:
-                    player_ids = team
-                    # print("Player IDs: " + str(player_ids))
-                    # for player_id in player_ids:
-                    #     # print(player_id[0])
-                    #     player_id_array.append(player_id)
-                # print ("Matchup: " + str(matchup))
-                # print("Player ID Array: " + str(player_id_array))
+                # print("Player ID: " + str(player_id))                
                 context = {
                     # 'matchup_data': matchup_data,
                     'matchups': matchups,
