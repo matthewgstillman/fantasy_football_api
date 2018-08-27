@@ -31,25 +31,44 @@ def index(request):
         scores[week] = response.json()
         scores = scores[week]
         scoreboard = scores['scoreboard']
-        logoUrl = scoreboard.matchups[0].teams[0].logoUrl
-        print("Logo URL: " + str(logoUrl))
-        print(scores)
+        # logoUrl = scoreboard.matchups[0].teams[0].logoUrl
+        # print("Logo URL: " + str(logoUrl))
+        # print(scores)
         matchups = scoreboard['matchups']
-        print("Matchups" + str(matchups))
-        # count1 = 0
-        # count2 = 0
-        # for team in matchups[int(count1)]['teams'][int(count2)]['team']['teamLocation']['title']:
-        #     print(team)
-        #     count1 += 1
-    # for team in scoreboard['matchups'][0]['teams'][0]['team']['teamLocation']['title']:
-    #     print (team)
-    context = {
-        'matchups': matchups,
-        'response': response,
-        'scores': scores,
-        'scoreboard': scoreboard,
-    }
-    return render(request, 'fantasy_football_api/index.html', context)
+        # print("Matchups" + str(matchups))
+        team_array = []
+        player_id_array = []
+        #New Crazy Shit!
+        if matchups:
+            for matchup in matchups:
+                players = matchup['teams'][0]['playerIDs']
+                for player in players:
+                    print("Player ID: "+ str(player))
+                team_matchup = matchup['teams'][0]
+                print("Team Matchup: " + str(team_matchup))
+                team = matchup['teams'][0]['team']
+                team_array.append(team)
+                # print ("Team: " + str(team))
+                # player_id = team
+                # print("Player ID: " + str(player_id))
+                for team in team_matchup:
+                    player_ids = team
+                    # print("Player IDs: " + str(player_ids))
+                    # for player_id in player_ids:
+                    #     # print(player_id[0])
+                    #     player_id_array.append(player_id)
+                # print ("Matchup: " + str(matchup))
+                # print("Player ID Array: " + str(player_id_array))
+                context = {
+                    # 'matchup_data': matchup_data,
+                    'matchups': matchups,
+                    'player_id_array': player_id_array,
+                    'response': response,
+                    'scores': scores,
+                    'scoreboard': scoreboard,
+                    'team_array': team_array,
+                    }
+                return render(request, 'fantasy_football_api/index.html', context)
 
 def boxscore(request):
     scores = {}
@@ -110,7 +129,7 @@ def playerinfo(request):
         player_name_wiki_content = player_name_wiki.content
         player_name_wiki_images = player_name_wiki.images
         image_urls = player_name_wiki_images
-    print(first_image_url)
+    # print(first_image_url)
     context = {
         'player_name': player_name,
         'image_urls': image_urls,

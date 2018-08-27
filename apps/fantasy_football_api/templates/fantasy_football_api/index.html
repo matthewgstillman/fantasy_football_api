@@ -32,6 +32,21 @@
 </nav>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
+        {{ team_array }}
+        {% if matchups %}
+            {% for matchup in matchups %}
+                <h1>{{ matchup.teams.0.team.teamLocation.title }} {{ matchup.teams.0.team.teamNickname.title }}</h1>
+                <h6>Division: {{ matchup.teams.0.team.division.divisionName }}</h6>
+                <h6>Team ID: {{ matchup.teams.0.teamId }}</h6>
+                {% for id in matchup.teams.0.playerIDs %}
+                <h6>{{ id }}</h6>
+                {% endfor %}
+                <h6>Player IDs: {{ matchup.teams.0.playerIDs }}</h6>
+                <h6>Waiver Rank: {{ matchup.teams.0.team.waiverRank }}</h6>
+                <h6>Team: {{ matchup.teams.0.team }}</h6>
+            {% endfor %}
+        {% endif %}
+        {{ matchups }}
         {% if scoreboard.matchups.0.teams.0.logoUrl %}
         <img src="{{scoreboard.matchups.0.teams.0.logoUrl}}" alt="Logo">
         <h1>{{scoreboard.matchups.0.teams.0.logoUrl}}</h1>
