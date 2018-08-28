@@ -5,6 +5,7 @@ import espnff
 from espnff import League
 import nflgame
 import wikipedia
+from .models import Player, Team
 
 # Create your views here.
 def crime(request):
@@ -51,6 +52,7 @@ def index(request):
                 print("Team: " + str(team))
                 team_array.append(team)
                 players = teams[0]['playerIDs']
+                print("Players: " + str(players))
                 for player in players:
                     print("Player ID: "+ str(player))
                     player_id_array.append(player)
@@ -60,38 +62,37 @@ def index(request):
                     team = matchup['teams'][0]['team']
                     print("Team: " + str(team))
                     team_array.append(team)
-                    for player in player_id_array:
-                            print("Player ID: " + str(player))
-                            for week in range(1, 17):
-                                response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                                            params={'leagueId': 446679,                             'playerId': player,'seasonId': 2018,            'matchupPeriodId': week})
-                                players = response.json()
-                                first_name = players['playerInfo']['players'][0]['player']['firstName']
-                                last_name = players['playerInfo']['players'][0]['player']['lastName']
-                                player_name = str(first_name) + " " + str(last_name)
-                                            # print ("Team: " + str(team))
-                                            # player_id = team
-                                            # print("Player ID: " + str(player_id))               
-                                context = {
-                                    'first_name': first_name,
-                                    'last_name': last_name,
-                                    'matchups': matchups,
-                                    'players': players,
-                                    'player_id_array': player_id_array,
-                                    'response': response,
-                                    'scores': scores,
-                                    'scoreboard': scoreboard,
-                                    'team_array': team_array,
-                                    }
-                                return render(request, 'fantasy_football_api/index.html', context)
+                    print("Player ID: " + str(player))
+                    for week in range(1, 17):
+                        response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
+                                    params={'leagueId': 446679,                            'playerId': player,                            'seasonId': 2018,                              'matchupPeriodId': week})
+                        players = response.json()
+                        first_name = players['playerInfo']['players'][0]['player']['firstName']
+                        last_name = players['playerInfo']['players'][0]['player']['lastName']
+                        player_name = str(first_name) + " " + str(last_name)
+                        print("Player Name: " + str(player_name))
+                        # print ("Team: " + str(team))
+                        # player_id = team
+                        # print("Player ID: " + str(player_id))               
+                        context = {
+                            'first_name': first_name,
+                            'last_name': last_name,
+                            'matchups': matchups,
+                            'players': players,
+                            'player_id_array': player_id_array,                    'response': response,
+                            'scores': scores,
+                            'scoreboard': scoreboard,
+                            'team_array': team_array,
+                            }
+                        return render(request, 'fantasy_football_api/index.html', context)
 
 def boxscore(request):
     scores = {}
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/boxscore', 
-                        params={'leagueId': 446679, 'seasonId': 2017, 'matchupPeriodId': 1})
-        print(response.json())
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': 1})
         scores = response.json()
+        print("Scores: " + str(scores))
         # boxscores = boxscores[week]
         # scoreboard = scores['scoreboard']
         # print(scores)
@@ -167,24 +168,24 @@ def schedule(request):
 
 
 def seasonstats(request):
+    all_players = Player.objects.all()
     response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&week=1&format=json')
     season_stats = response.json()
     print(season_stats)
     players = []
     for i in season_stats['players']:
         name = i['name']
-        #Adding Photo Via Wikipedia Page
-        # wiki_name = wikipedia.page(name + str("(American football)"))
-        # print("Wiki Name: " + str(wiki_name) + str("(American football)"))
         position = i['position']
         team = i['teamAbbr']
         projected_points = i['weekProjectedPts']
         week_pts = i['weekPts']
         season_pts = i['seasonPts']
+        # Player.objects.add_player(name, position, team, projected_points, week_pts,season_pts)
         players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
         print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
         # print(players)
     context = {
+        'all_players': all_players,
         'name': name,
         'players': players,
         'position': position,
