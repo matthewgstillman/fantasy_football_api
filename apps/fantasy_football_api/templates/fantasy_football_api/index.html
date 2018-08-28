@@ -32,8 +32,9 @@
 </nav>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
-        {{ team_array }}
         {{ player_id_array }}
+        {{ players }}
+        {{ first_name }} {{ last_name }}
         {% if matchups %}
             {% for matchup in matchups %}
                 <h1>{{ matchup.teams.0.team.teamLocation.title }} {{ matchup.teams.0.team.teamNickname.title }}</h1>
