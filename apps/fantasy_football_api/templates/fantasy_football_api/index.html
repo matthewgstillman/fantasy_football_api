@@ -32,6 +32,107 @@
 </nav>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
+        {% for keys, values in player_dict.teams.Team_Hella_The_Most_Losing.iteritems %}
+            <h1>The No Fly Zone</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.Jackie_And_Alanas_Bitch.iteritems %}
+            <h1>Jackie And Alana's Bitch</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        {% for keys, values in player_dict.teams.Touchdown_There.iteritems %}
+            <h1>Touchdown There</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.Finding_Fitz_Gerald.iteritems %}
+            <h1>Finding (Fitz) Gerald</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.I_AaAM_Pro_Royce.iteritems %}
+            <h1>I AaAM Pro Royce</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.The_Chico_State_Riots.iteritems %}
+            <h1>The Chico State Riots</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.Cranky_Milk_Maids.iteritems %}
+            <h1>Cranky Milk Maids</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.The_No_Fly_Zone.iteritems %}
+            <h1>The No Fly Zone</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.Team_Really_Losing.iteritems %}
+            <h1>Team Really Losing</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.Team_Losing.iteritems %}
+            <h1>Team Losing</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for keys, values in player_dict.teams.Team_Shannonballs.iteritems %}
+            <h1>Team Shannonballs</h1>
+            <h6>{{ values.keys.values }}</h6>
+            {% for player in values.values %}
+                <h6>{{ player }}</h6>
+            {% endfor %}
+            <h6>Players: {{ values.values }}</h6>
+        {% endfor %}
+        <br>
+        {% for team in player_dict.teams %}
+            <h6>{{ team }}</h6>
+        {% endfor %}
         {{ player_id_array }}
         {{ players }}
         {{ first_name }} {{ last_name }}
@@ -45,9 +146,6 @@
                         <h6>{{ id.values }}</h6>
                     {% endif %}
                 {% endfor %}-->
-                {% for team in player_dict.teams %}
-                <h6>{{ team }}</h6>
-                {% endfor %}
                 <h6>Player IDs: {{ matchup.teams.0.playerIDs }}</h6>
                 <h6>Waiver Rank: {{ matchup.teams.0.team.waiverRank }}</h6>
                 <h6>Team: {{ matchup.teams.0.team }}</h6>

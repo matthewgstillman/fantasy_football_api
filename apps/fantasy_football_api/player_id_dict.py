@@ -1,6 +1,6 @@
 player_dict = {
     'teams': {
-        "Team Hella The Most Losing":{
+        "Team_Hella_The_Most_Losing":{
             "Players":{
             '17797': "Ezekiel Elliott", 
             '13983': "A.J. Green", 
@@ -20,7 +20,7 @@ player_dict = {
             '18314': "Aaron Jones",
             },
         },
-        "Jackie And Alana'S Bitch":{
+        "Jackie_And_Alanas_Bitch":{
             "Players":{
             '15795': "DeAndre Hopkins",
             '17586': "Melvin Gordon",
@@ -40,7 +40,7 @@ player_dict = {
             '10452': "Adrian Peterson",
             },
         },
-        "Touchdown There":{
+        "Touchdown_There":{
             "Players":{
             '16733': "Odell Beckham Jr.",
             '18225': "Kareem Hunt",
@@ -60,7 +60,7 @@ player_dict = {
             '60028': "Redskins D/STgi",
             },
         },
-        "Finding (Fitz) Gerald":{
+        "Finding_Fitz_Gerald":{
             "Players":{
             '8187': "Odell Bechkam Jr.",
             '15818': "Keenan Allen",
@@ -80,7 +80,7 @@ player_dict = {
             '18078': "Rob Kelley",
             },
         },
-        "I AaAM Pro Royce":{
+        "I_AaAM_Pro_Royce":{
             "Players":{
             '17442': "David Johnson",
             '18630': "Royce Freeman",
@@ -100,7 +100,7 @@ player_dict = {
             '12601': "Mike Wallace",
             },
         },
-        "The Chico State Riots":{
+        "The_Chico_State_Riots":{
             "Players":{
             '18567': "Saquon Barkley",
             '16800': "Davante Adams",
@@ -120,7 +120,7 @@ player_dict = {
             '17908': "Devontae Booker",
             },
         },
-        "Cranky Milk Maids":{
+        "Cranky_Milk_Maids":{
             "Players":{
             '15825': "Le'Veon Bell",
             '12514': "Gerell Robinson",
@@ -140,7 +140,7 @@ player_dict = {
             '17762': "Tyrell Williams",
             },
         },
-        "The No Fly Zone":{
+        "The_No_Fly_Zone":{
             "Players":{
             '13982': "Julio Jones",
             '18279': "Christian McCaffrey",
@@ -160,7 +160,7 @@ player_dict = {
             '15168': "Case Keenum",
             },
         },
-        "Team Really Losing":{
+        "Team_Really_Losing":{
             "Players":{
             '13934': "Antonio Brown",
             '17834': "Michael Thomas",
@@ -180,7 +180,7 @@ player_dict = {
             '18178': "Jake Elliott",
             },
         },
-        "Team Losing":{
+        "Team_Losing":{
             "Players":{
             '17683': "Todd Gurley II",
             '13229': "Rob Gronkowski",
@@ -200,7 +200,7 @@ player_dict = {
             '15102': "Rishard Matthews",
             },
         },
-        "Team Shannonballs":{
+        "Team_Shannonballs":{
             "Players":{
             '18218': "Leonard Fournette",
             '18260': "Dalvin Cook",
