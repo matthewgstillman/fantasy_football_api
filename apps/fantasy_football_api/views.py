@@ -26,6 +26,7 @@ def crime(request):
     return render(request, 'fantasy_football_api/crime.html', context)
 
 def index(request):
+    print("Player Dictionary: " + str(player_dict))
     scores = {}
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
@@ -66,7 +67,7 @@ def index(request):
                     print("Player ID: " + str(player))
                     for week in range(1, 17):
                         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                                    params={'leagueId': 446679,                            'playerId': 60028,                            'seasonId': 2018,                              'matchupPeriodId': week})
+                                    params={'leagueId': 446679,                                                    'playerId': 60028,                                                     'seasonId': 2018,                                                      'matchupPeriodId': week})
                         players = response.json()
                         first_name = players['playerInfo']['players'][0]['player']['firstName']
                         last_name = players['playerInfo']['players'][0]['player']['lastName']
@@ -74,13 +75,15 @@ def index(request):
                         print("Player Name: " + str(player_name))
                         # print ("Team: " + str(team))
                         # player_id = team
-                        # print("Player ID: " + str(player_id))               
+                        # print("Player ID: " + str(player_id))        
+                        print("Player Dictionary: " + str(player_dict))
                         context = {
                             'first_name': first_name,
                             'last_name': last_name,
                             'matchups': matchups,
                             'players': players,
-                            'player_id_array': player_id_array,                    'response': response,
+                            'player_dict': player_dict,
+                            'player_id_array': player_id_array,        'response': response,
                             'scores': scores,
                             'scoreboard': scoreboard,
                             'team_array': team_array,

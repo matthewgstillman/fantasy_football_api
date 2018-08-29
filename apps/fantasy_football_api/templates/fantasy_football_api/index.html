@@ -40,8 +40,13 @@
                 <h1>{{ matchup.teams.0.team.teamLocation.title }} {{ matchup.teams.0.team.teamNickname.title }}</h1>
                 <h6>Division: {{ matchup.teams.0.team.division.divisionName }}</h6>
                 <h6>Team ID: {{ matchup.teams.0.teamId }}</h6>
-                {% for id in matchup.teams.0.playerIDs %}
-                <h6>{{ id }}</h6>
+                <!--{% for id in matchup.teams.0.playerIDs %}
+                    {% if id in id.keys %}
+                        <h6>{{ id.values }}</h6>
+                    {% endif %}
+                {% endfor %}-->
+                {% for team in player_dict.teams %}
+                <h6>{{ team }}</h6>
                 {% endfor %}
                 <h6>Player IDs: {{ matchup.teams.0.playerIDs }}</h6>
                 <h6>Waiver Rank: {{ matchup.teams.0.team.waiverRank }}</h6>

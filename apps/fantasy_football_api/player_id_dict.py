@@ -1,6 +1,7 @@
 player_dict = {
     'teams': {
         "Team Hella The Most Losing":{
+            "Players":{
             '17797': "Ezekiel Elliott", 
             '13983': "A.J. Green", 
             '16737': "Mike Evans", 
@@ -17,8 +18,10 @@ player_dict = {
             '18728': "Jordan Wilkins",
             '60033': "Ravens D/ST",
             '18314': "Aaron Jones",
+            },
         },
         "Jackie And Alana'S Bitch":{
+            "Players":{
             '15795': "DeAndre Hopkins",
             '17586': "Melvin Gordon",
             '17929': "Tyreek Hill",
@@ -35,8 +38,10 @@ player_dict = {
             '15683': "Justin Tucker",
             '18235': "Mike Williams",
             '10452': "Adrian Peterson",
+            },
         },
         "Touchdown There":{
+            "Players":{
             '16733': "Odell Beckham Jr.",
             '18225': "Kareem Hunt",
             '16790': "Stephon Tuitt",
@@ -52,9 +57,11 @@ player_dict = {
             '13215': "Dez Bryant",
             '16804': "John Brown",
             '14322': "Dan Bailey",
-            '60028': "Redskins D/ST",
+            '60028': "Redskins D/STgi",
+            },
         },
         "Finding (Fitz) Gerald":{
+            "Players":{
             '8187': "Odell Bechkam Jr.",
             '15818': "Keenan Allen",
             '5528': "Larry Fitzgerald",
@@ -71,8 +78,10 @@ player_dict = {
             '17784': "Cameron Brate",
             '60007': "Broncos D/ST",
             '18078': "Rob Kelley",
+            },
         },
         "I AaAM Pro Royce":{
+            "Players":{
             '17442': "David Johnson",
             '18630': "Royce Freeman",
             '17178': "Adam Thielen",
@@ -89,8 +98,10 @@ player_dict = {
             '14885': "Doug Martin",
             '60024': "Chargers D/ST",
             '12601': "Mike Wallace",
+            },
         },
         "The Chico State Riots":{
+            "Players":{
             '18567': "Saquon Barkley",
             '16800': "Davante Adams",
             '17919': "Jordan Howard",
@@ -107,8 +118,10 @@ player_dict = {
             '17794': "Jared Goff",
             '60018': "Saints D/ST",
             '17908': "Devontae Booker",
+            },
         },
         "Cranky Milk Maids":{
+            "Players":{
             '15825': "Le'Veon Bell",
             '12514': "Gerell Robinson",
             '14886': "Lamar Miller",
@@ -125,8 +138,10 @@ player_dict = {
             '17610': "Marcus Mariota",
             '5557': "Benjamin Watson",
             '17762': "Tyrell Williams",
+            },
         },
         "The No Fly Zone":{
+            "Players":{
             '13982': "Julio Jones",
             '18279': "Christian McCaffrey",
             '17676': "Stefon Diggs",
@@ -143,8 +158,10 @@ player_dict = {
             '60029': "Panthers D/ST",
             '18104': "Wil Lutz",
             '15168': "Case Keenum",
+            },
         },
         "Team Really Losing":{
+            "Players":{
             '13934': "Antonio Brown",
             '17834': "Michael Thomas",
             '16782': "Jerick McKinnon",
@@ -161,8 +178,10 @@ player_dict = {
             '18619': "James Washington",
             '60034': "Texans D/ST", 
             '18178': "Jake Elliott",
+            },
         },
         "Team Losing":{
+            "Players":{
             '17683': "Todd Gurley II",
             '13229': "Rob Gronkowski",
             '18193': "Joe Mixon",
@@ -179,8 +198,10 @@ player_dict = {
             '60014': "Rams D/ST",
             '12731': "Ryan Succop",
             '15102': "Rishard Matthews",
+            },
         },
         "Team Shannonballs":{
+            "Players":{
             '18218': "Leonard Fournette",
             '18260': "Dalvin Cook",
             '13216': "Demaryius Thomas",
@@ -197,6 +218,7 @@ player_dict = {
             '9704': "Stephen Gostkowski",
             '60010': "Titans D/ST",
             '18663': "Nyheim Hines",
+            },
         },
     }
 }
