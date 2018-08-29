@@ -6,6 +6,7 @@ from espnff import League
 import nflgame
 import wikipedia
 from .models import Player, Team
+from player_id_dict import player_dict
 
 # Create your views here.
 def crime(request):
@@ -65,7 +66,7 @@ def index(request):
                     print("Player ID: " + str(player))
                     for week in range(1, 17):
                         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                                    params={'leagueId': 446679,                            'playerId': 15168,                            'seasonId': 2018,                              'matchupPeriodId': week})
+                                    params={'leagueId': 446679,                            'playerId': 60028,                            'seasonId': 2018,                              'matchupPeriodId': week})
                         players = response.json()
                         first_name = players['playerInfo']['players'][0]['player']['firstName']
                         last_name = players['playerInfo']['players'][0]['player']['lastName']
