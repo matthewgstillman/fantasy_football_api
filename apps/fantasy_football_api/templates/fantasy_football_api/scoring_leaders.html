@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Scoring Leaders</title>
+{% endblock%}
+
+{% block content %}
+<a href="/">Go Back</a>
+<div class="container">
+    <h1>Scoring Leaders</h1>
+    {{wrs}}
+    <h6>{{ scoring_leaders }}</h6>
+</div>
+{% endblock %}

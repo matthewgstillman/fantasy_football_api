@@ -32,6 +32,9 @@
 </nav>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
+        {% for team in teams %}
+            <h6>{{ team }}</h6>
+        {% endfor %}
         {% for keys, values in player_dict.teams.Team_Hella_The_Most_Losing.iteritems %}
             <h1>Team Hella The Most Losing</h1>
             <h6>{{ values.keys.values }}</h6>

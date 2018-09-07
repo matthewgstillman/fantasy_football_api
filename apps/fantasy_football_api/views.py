@@ -25,7 +25,7 @@ def crime(request):
     }
     return render(request, 'fantasy_football_api/crime.html', context)
 
-def index(request):
+def index(request): 
     print("Player Dictionary: " + str(player_dict))
     scores = {}
     for week in range(1, 17):
@@ -44,12 +44,9 @@ def index(request):
         #New Crazy Shit!
         if matchups:
             for matchup in matchups:
-                #NEWLY Added Line - teams variable
                 teams = matchup['teams'] 
                 # print("Teams: " + str(teams))
                 # i = 0
-                #MAKE THIS SHIT ITERATE
-                # for i in range(0, 13):
                 team = teams[0]['team']
                 print("Team: " + str(team))
                 team_array.append(team)
@@ -77,16 +74,21 @@ def index(request):
                         # player_id = team
                         # print("Player ID: " + str(player_id))        
                         print("Player Dictionary: " + str(player_dict))
+                        teams = player_dict['teams']
+                        for team in teams:
+                            print("Team: " + str(team))
                         context = {
                             'first_name': first_name,
                             'last_name': last_name,
                             'matchups': matchups,
                             'players': players,
                             'player_dict': player_dict,
-                            'player_id_array': player_id_array,        'response': response,
+                            'player_id_array': player_id_array, 
+                            'response': response,
                             'scores': scores,
                             'scoreboard': scoreboard,
                             'team_array': team_array,
+                            'teams': teams,
                             }
                         return render(request, 'fantasy_football_api/index.html', context)
 
@@ -173,7 +175,7 @@ def schedule(request):
 
 def seasonstats(request):
     all_players = Player.objects.all()
-    response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&week=1&format=json')
+    response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&week=1&format=json')
     season_stats = response.json()
     print(season_stats)
     players = []
@@ -200,6 +202,35 @@ def seasonstats(request):
         'week_pts': week_pts,
     }
     return render(request, 'fantasy_football_api/seasonstats.html', context)
+
+
+def scoring_leaders(request):
+    url = ('http://api.fantasy.nfl.com/players/scoringleaders?season=2018&week=1&format=json')
+    response = requests.get(url)
+    scoring_leaders = response.json()
+    print("Scoring Leaders: " + str(scoring_leaders))
+    positions = scoring_leaders['positions']
+    wrs = positions['WR']
+    for wr in wrs:
+        player = wr['esbid']
+        status = wr['status']
+        stat_line = wr['statsLine']
+        stats = wr['stats']
+        team = wr['teamAbbr']
+        opponent = wr['opponentTeamAbbr']
+        first_name = wr['firstName']
+        last_name = wr['lastName']
+        full_name = str(first_name) + str(last_name)
+        projected_points = wr['projectedPts']
+        # stat_line = stat_line['stats']
+        print("Stats: " + str(stats))
+        # print("WR: " + str(wr))
+    # print("Wide Receivers: " + str(wrs))
+    context = {
+        'scoring_leaders': scoring_leaders,
+        'wrs': wrs,
+    }
+    return render(request, 'fantasy_football_api/scoring_leaders.html', context)
 
 
 def team(request):
