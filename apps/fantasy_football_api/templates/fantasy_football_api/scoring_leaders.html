@@ -36,16 +36,46 @@
         <h6>Team: {{ qb.teamAbbr }}</h6>
         <h6>Position: {{ qb.position }}</h6>
         <h6>Opponent: {{ qb.opponentTeamAbbr }}</h6>
+        {% if qb.pts == False %}
+        <h6>Points: 0 points</h6>
+        {% endif%}
+        {% if qb.pts != False %}
         <h6>Points: {{ qb.pts }} points</h6>
+        {% endif%}
+        {% if qb.projectedPts == False %}
+        <h6>Projected Points: 0 points</h6>
+        {% endif %}
+        {% if qb.projectedPts != False %}
         <h6>Projected Points: {{ qb.projectedPts }} points</h6>
+        {% endif %}
         <h6>Status: {{ qb.status }}</h6>
+        {% if qb.statsLine == "" %}
+        <h6>Stat Line: Yet To Play</h6>
+        {% endif%}
+        {% if qb.statsLine != "" %}
         <h6>Stat Line: {{ qb.statsLine }}</h6>
-        <h6>Passing Touchdowns: {{ qb.stats.PassTDs }}</h6>
+        {% endif%}
+        {% if qb.stats.PassTDs == False %}
+        <h6>Passing Touchdowns: 0</h6>
+        {% endif %}
+        {% if qb.stats.PassTDs != False %}
+        <h6>Passing Touchdowns: {{ qb.stats.PassTDs }} TD</h6>
+        {% endif %}
+        {% if qb.stats.RushTDs == False %}
+        <h6>Rushing TDs: 0</h6>
+        {% endif %}
+        {% if qb.stats.RushTDs != False %}
         <h6>Rushing TDs: {{ qb.stats.RushTDs }} TD</h6>
+        {% endif %}
+        {% if qb.stats.RecTDs == False %}
+        <h6>Receiving Touchdowns: 0</h6>
+        {% endif %}
+        {% if qb.stats.RecTDs != False %}
+        <h6>Receiving Touchdowns: {{ qb.stats.RecTDs }} TD</h6>
+        {% endif %}
         <h6>ID: {{ qb.id }}</h6>
         <h6>Esbid ID: {{ qb.esbid }}</h6>
         <h6>Rank: #{{ qb.rank }}</h6>
-        <h6>{{ qb }}</h6>
     {% endfor %}
     <h1>Running Backs</h1>
     {% for rb in rbs %}
@@ -53,13 +83,38 @@
         <h6>Team: {{ rb.teamAbbr }}</h6>
         <h6>Position: {{ rb.position }}</h6>
         <h6>Opponent: {{ rb.opponentTeamAbbr }}</h6>
+        {% if rb.pts == False %}
+        <h6>Points: 0 points</h6>
+        {% endif %}
+        {% if rb.pts != False %}
         <h6>Points: {{ rb.pts }} points</h6>
+        {% endif %}
+        {% if rb.projectedPts == False %}
+        <h6>Projected Points: 0 points</h6>
+        {% endif %}
+        {% if rb.projectedPts != False %}
         <h6>Projected Points: {{ rb.projectedPts }} points</h6>
+        {% endif %}
         <h6>Status: {{ rb.status }}</h6>
         <h6>Stat Line: {{ rb.statsLine }}</h6>
+        {% if rb.stats.RushTDs == False %}
+        <h6>Rushing TDs: 0 TD</h6>
+        {% endif %}
+        {% if rb.stats.RushTDs != False %}
         <h6>Rushing TDs: {{ rb.stats.RushTDs }} TD</h6>
-        <h6>Passing Touchdowns: {{ rb.stats.PassTDs }}</h6>
-        <h6>Receiving TDs: {{ rb.stats.RecTDs }}</h6>
+        {% endif %}
+        {% if rb.stats.PassTDs == False %}
+        <h6>Passing Touchdowns: 0 TD</h6>
+        {% endif %}
+        {% if rb.stats.PassTDs != False %}
+        <h6>Passing Touchdowns: {{ rb.stats.PassTDs }} TD</h6>
+        {% endif %}
+        {% if rb.stats.RecTDs == False %}
+        <h6>Receiving TDs: 0 TD</h6>
+        {% endif %}
+        {% if rb.stats.RecTDs != False %}
+        <h6>Receiving TDs: {{ rb.stats.RecTDs }} TD</h6>
+        {% endif %}
         <h6>ID: {{ rb.id }}</h6>
         <h6>Esbid ID: {{ rb.esbid }}</h6>
         <h6>Rank: #{{ rb.rank }}</h6>
@@ -71,18 +126,67 @@
         <h6>Team: {{ leader.teamAbbr }}</h6>
         <h6>Position: {{ leader.position }}</h6>
         <h6>Opponent: {{ leader.opponentTeamAbbr }}</h6>
+        {% if leader.pts == False %}
+        <h6>Points: 0 points</h6>
+        {% endif %}
+        {% if leader.pts != False %}
         <h6>Points: {{ leader.pts }} points</h6>
+        {% endif %}
+        {% if leader.projectedPts == False %}
+        <h6>Projected Points: 0 points</h6>
+        {% endif %}
+        {% if leader.projectedPts != False %}
         <h6>Projected Points: {{ leader.projectedPts }} points</h6>
+        {% endif %}
         <h6>Status: {{ leader.status }}</h6>
+        {% if leader.statsLine == ""%}
+        <h6>Stat Line: Yet To Play</h6>
+        {% endif %}
+        {% if leader.statsLine != ""%}
         <h6>Stat Line: {{ leader.statsLine }}</h6>
-        <h6>Receiving TDs: {{ leader.stats.RecTDs }}</h6>
+        {% endif %}
+        {% if leader.stats.RecTDs == False %}
+        <h6>Receiving TDs: 0</h6>
+        {% endif %}
+        {% if leader.stats.RecTDs != False %}
+        <h6>Receiving TDs: 0</h6>
+        {% endif %}
+        {% if leader.stats.RushTDs == False %}
+        <h6>Rushing TDs: 0</h6>
+        {% endif %}
+        {% if leader.stats.RushTDs != False %}
         <h6>Rushing TDs: {{ leader.stats.RushTDs }}</h6>
-        <h6>Passing Touchdowns: {{ leader.stats.PassTDs }}</h6>
+        {% endif %}
+        {% if leader.stats.PassTDs == False %}
+        <h6>Passing Touchdowns: 0</h6>
+        {% endif %}
+        {% if leader.stats.PassTDs != False %}
+        <h6>Passing Touchdowns: {{ leader.stats.PassTDs }} TD</h6>
+        {% endif %}
+        {% if leader.stats.FumLost == False%}
+        <h6>Fumbles Lost: 0</h6>
+        {% endif %}
+        {% if leader.stats.FumLost != False%}
         <h6>Fumbles Lost: {{ leader.stats.FumLost }}</h6>
-        <h6>Fumbles Recovered For Touchdowns: {{ leader.stats.FumTD }}
+        {% endif %}
+        {% if leader.stats.RecYds == False %}
+        <h6>Receiving Yards: 0 yards</h6>
+        {% endif %}
+        {% if leader.stats.RecYds != False %}
         <h6>Receiving Yards: {{ leader.stats.RecYds }} yards</h6>
+        {% endif %}
+        {% if leader.stats.RushYds == False %}
+        <h6>Rushing Yards: 0 yards</h6>
+        {% endif %}
+        {% if leader.stats.RushYds != False %}
         <h6>Rushing Yards: {{ leader.stats.RushYds }} yards</h6>
+        {% endif %}
+        {% if leader.stats.TwoPt == False %}
+        <h6>2 pt. Conversions: 0</h6>
+        {% endif %}
+        {% if leader.stats.TwoPt != False %}
         <h6>2 pt. Conversions: {{ leader.stats.TwoPt }}</h6>
+        {% endif %}
         <h6>ID: {{ leader.id }}</h6>
         <h6>Esbid ID: {{ leader.esbid }}</h6>
         <h6>Rank: #{{ leader.rank }}</h6>
@@ -99,14 +203,48 @@
         <h6>Projected Points: {{ te.projectedPts }} points</h6>
         <h6>Status: {{ te.status }}</h6>
         <h6>Stat Line: {{ te.statsLine }}</h6>
-        <h6>Receiving TDs: {{ te.stats.RecTDs }}</h6>
-        <h6>Rushing TDs: {{ te.stats.RushTDs }}</h6>
-        <h6>Passing Touchdowns: {{ te.stats.PassTDs }}</h6>
+        {% if te.stat.RecTDs != False%}
+        <h6>Receiving TDs: 0</h6>
+        {% endif %}
+        {% if te.stat.RecTDs == False%}
+        <h6>Receiving TDs: {{ te.stats.RecTDs }} TD</h6>
+        {% endif %}
+        {% if te.stats.RushTDs != False %}
+        <h6>Rushing TDs: {{ te.stats.RushTDs }} TD</h6>
+        {% endif %}
+        {% if te.stats.RushTDs == False %}
+        <h6>Rushing TDs: 0</h6>
+        {% endif %}
+        {% if te.stats.PassTDs == False %}
+        <h6>Passing Touchdowns: 0</h6>
+        {% endif %}
+        {% if te.stats.PassTDs != False %}
+        <h6>Passing Touchdowns: {{ te.stats.PassTDs }} TD</h6>
+        {% endif %}
+        {% if te.stats.FumLost == False %}
+        <h6>Fumbles Lost: 0</h6>
+        {% endif %}
+        {% if te.stats.FumLost != False %}
         <h6>Fumbles Lost: {{ te.stats.FumLost }}</h6>
-        <h6>Fumbles Recovered For Touchdowns: {{ te.stats.FumTD }}
+        {% endif %}
+        {% if te.stats.RecYds != False %}
         <h6>Receiving Yards: {{ te.stats.RecYds }} yards</h6>
+        {% endif %}
+        {% if te.stats.RecYds == False %}
+        <h6>Receiving Yards: 0 yards</h6>
+        {% endif %}
+        {% if te.stats.RushYds != False %}
         <h6>Rushing Yards: {{ te.stats.RushYds }} yards</h6>
+        {% endif %}
+        {% if te.stats.RushYds == False %}
+        <h6>Rushing Yards: 0 yards</h6>
+        {% endif %}
+        {% if te.stats.TwoPt == False %}
+        <h6>2 pt. Conversions: 0</h6>
+        {% endif %}
+        {% if te.stats.TwoPt != False %}
         <h6>2 pt. Conversions: {{ te.stats.TwoPt }}</h6>
+        {% endif %}
         <h6>ID: {{ te.id }}</h6>
         <h6>Esbid ID: {{ te.esbid }}</h6>
         <h6>Rank: #{{ te.rank }}</h6>
@@ -116,20 +254,62 @@
     <br>
     {% for defense in defenses %}
     <h2>{{ defense.firstName }} {{ defense.lastName }} ({{ defense.position }})</h2>
+    {% if defense.pts == False %}
+    <h6>Points Scored: 0 points</h6>
+    {% endif %}
+    {% if defense.pts != False %}
     <h6>Points Scored: {{ defense.pts }} points</h6>
+    {% endif %}
     <h6>Projected Points: {{ defense.projectedPts }} points</h6>
     <h6>Team Abbrevation: {{ defense.teamAbbr }}</h6>
     <h6>Position: {{ defense.position }}</h6>
     <h6>Opponent: {{ defense.opponentTeamAbbr }}</h6>
     <h6>{{ defense.status }}</h6>
+    {% if defense.statsLine == False %}
+    <h6>Stat Line: Yet To Play</h6>
+    {% endif %}
+    {% if defense.statsLine != False %}
     <h6>Stat Line: {{ defense.statsLine }}</h6>
+    {% endif %}
+    {% if defense.stats.FumRec == False %}
+    <h6>Fumble Recoveries: 0</h6>
+    {% endif %}
+    {% if defense.stats.FumRec != False %}
     <h6>Fumble Recoveries: {{ defense.stats.FumRec }}</h6>
-    <h6>Interceptions: {{ defense.stats.Int }}</h6>
-    <h6>Safeties: {{ defense.stats.Saf }}</h6>
+    {% endif %}
+    {% if defense.stats.Int == False %}
+    <h6>Interceptions: 0</h6>
+    {% endif %}
+    {% if defense.stats.Int != False %}
+    <h6>Interceptions: {{ defense.stats.Int }} INT</h6>
+    {% endif %}
+    {% if defense.stats.Saf == False %}
+    <h6>Safeties: 0</h6>
+    {% endif %}
+    {% if defense.stats.Saf != False %}
+    <h6>Safeties: {{ defense.stats.Saf }} Safeties</h6>
+    {% endif %}
+    {% if defense.stats.Sack != False %}
     <h6>Sacks: {{ defense.stats.Sack }}</h6>
+    {% endif %}
+    {% if defense.stats.PtsAllowed == False %}
+    <h6>Points Allowed: 0</h6>
+    {% endif %}
+    {% if defense.stats.PtsAllowed != False %}
     <h6>Points Allowed: {{ defense.stats.PtsAllowed }}</h6>
+    {% endif %}
+    {% if defense.stats.RetTD == False %}
+    <h6>Return Touchdowns: 0</h6>
+    {% endif %}
+    {% if defense.stats.RetTD != False %}
     <h6>Return Touchdowns: {{ defense.stats.RetTD }}</h6>
+    {% endif %}
+    {% if defense.stats.TD == False %}
+    <h6>Touchdowns: 0</h6>
+    {% endif %}
+    {% if defense.stats.TD != False %}
     <h6>Touchdowns: {{ defense.stats.TD }}</h6>
+    {% endif %}
     <h6>Rank: #{{ defense.rank }}</h6>
     <h6>ID: {{ defense.id }}</h6>
     <br>
