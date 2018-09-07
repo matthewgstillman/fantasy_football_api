@@ -5,16 +5,74 @@
 {% endblock%}
 
 {% block content %}
-<a href="/">Go Back</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Wedding Receptions</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/seasonstats">Season Stats</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/mostarrests">NFL Players Arrested The Most</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/teamcrime">Arrests By Team</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
     <h1>Scoring Leaders</h1>
+    <h1>Quarterbacks</h1>
+    {% for qb in qbs %}
+        <h2>{{ qb.firstName }} {{ qb.lastName }}</h2>
+        <h6>Team: {{ qb.teamAbbr }}</h6>
+        <h6>Position: {{ qb.position }}</h6>
+        <h6>Opponent: {{ qb.opponentTeamAbbr }}</h6>
+        <h6>Points: {{ qb.pts }} points</h6>
+        <h6>Projected Points: {{ qb.projectedPts }} points</h6>
+        <h6>Status: {{ qb.status }}</h6>
+        <h6>Stat Line: {{ qb.statsLine }}</h6>
+        <h6>Passing Touchdowns: {{ qb.stats.PassTDs }}</h6>
+        <h6>Rushing TDs: {{ qb.stats.RushTDs }} TD</h6>
+        <h6>ID: {{ qb.id }}</h6>
+        <h6>Esbid ID: {{ qb.esbid }}</h6>
+        <h6>Rank: #{{ qb.rank }}</h6>
+        <h6>{{ qb }}</h6>
+    {% endfor %}
+    <h1>Running Backs</h1>
+    {% for rb in rbs %}
+        <h2>{{ rb.firstName }} {{ rb.lastName }}</h2>
+        <h6>Team: {{ rb.teamAbbr }}</h6>
+        <h6>Position: {{ rb.position }}</h6>
+        <h6>Opponent: {{ rb.opponentTeamAbbr }}</h6>
+        <h6>Points: {{ rb.pts }} points</h6>
+        <h6>Projected Points: {{ rb.projectedPts }} points</h6>
+        <h6>Status: {{ rb.status }}</h6>
+        <h6>Stat Line: {{ rb.statsLine }}</h6>
+        <h6>Rushing TDs: {{ rb.stats.RushTDs }} TD</h6>
+        <h6>Passing Touchdowns: {{ rb.stats.PassTDs }}</h6>
+        <h6>Receiving TDs: {{ rb.stats.RecTDs }}</h6>
+        <h6>ID: {{ rb.id }}</h6>
+        <h6>Esbid ID: {{ rb.esbid }}</h6>
+        <h6>Rank: #{{ rb.rank }}</h6>
+        <br>
+    {% endfor %}
     <h1>Wide Receivers</h1>
     {% for leader in wrs %}
         <h2>{{ leader.firstName }} {{ leader.lastName }}</h2>
         <h6>Team: {{ leader.teamAbbr }}</h6>
+        <h6>Position: {{ leader.position }}</h6>
         <h6>Opponent: {{ leader.opponentTeamAbbr }}</h6>
-        <h6>Points: {{ leader.pts }}</h6>
-        <h6>Projected Points: {{ leader.projectedPts }}</h6>
+        <h6>Points: {{ leader.pts }} points</h6>
+        <h6>Projected Points: {{ leader.projectedPts }} points</h6>
         <h6>Status: {{ leader.status }}</h6>
         <h6>Stat Line: {{ leader.statsLine }}</h6>
         <h6>Receiving TDs: {{ leader.stats.RecTDs }}</h6>
@@ -27,10 +85,56 @@
         <h6>2 pt. Conversions: {{ leader.stats.TwoPt }}</h6>
         <h6>ID: {{ leader.id }}</h6>
         <h6>Esbid ID: {{ leader.esbid }}</h6>
+        <h6>Rank: #{{ leader.rank }}</h6>
         </h6>
         <br>
     {% endfor %}
-    {{wrs}}
+    <h1>Tight Ends</h1>
+    {% for te in tes%}
+        <h2>{{ te.firstName }} {{ te.lastName }}</h2>
+        <h6>Team: {{ te.teamAbbr }}</h6>
+        <h6>Position: {{ te.position }}</h6>
+        <h6>Opponent: {{ te.opponentTeamAbbr }}</h6>
+        <h6>Points: {{ te.pts }} points</h6>
+        <h6>Projected Points: {{ te.projectedPts }} points</h6>
+        <h6>Status: {{ te.status }}</h6>
+        <h6>Stat Line: {{ te.statsLine }}</h6>
+        <h6>Receiving TDs: {{ te.stats.RecTDs }}</h6>
+        <h6>Rushing TDs: {{ te.stats.RushTDs }}</h6>
+        <h6>Passing Touchdowns: {{ te.stats.PassTDs }}</h6>
+        <h6>Fumbles Lost: {{ te.stats.FumLost }}</h6>
+        <h6>Fumbles Recovered For Touchdowns: {{ te.stats.FumTD }}
+        <h6>Receiving Yards: {{ te.stats.RecYds }} yards</h6>
+        <h6>Rushing Yards: {{ te.stats.RushYds }} yards</h6>
+        <h6>2 pt. Conversions: {{ te.stats.TwoPt }}</h6>
+        <h6>ID: {{ te.id }}</h6>
+        <h6>Esbid ID: {{ te.esbid }}</h6>
+        <h6>Rank: #{{ te.rank }}</h6>
+        <br>
+    {% endfor %}
+    <h1>Defenses</h1>
+    <br>
+    {% for defense in defenses %}
+    <h2>{{ defense.firstName }} {{ defense.lastName }} ({{ defense.position }})</h2>
+    <h6>Points Scored: {{ defense.pts }} points</h6>
+    <h6>Projected Points: {{ defense.projectedPts }} points</h6>
+    <h6>Team Abbrevation: {{ defense.teamAbbr }}</h6>
+    <h6>Position: {{ defense.position }}</h6>
+    <h6>Opponent: {{ defense.opponentTeamAbbr }}</h6>
+    <h6>{{ defense.status }}</h6>
+    <h6>Stat Line: {{ defense.statsLine }}</h6>
+    <h6>Fumble Recoveries: {{ defense.stats.FumRec }}</h6>
+    <h6>Interceptions: {{ defense.stats.Int }}</h6>
+    <h6>Safeties: {{ defense.stats.Saf }}</h6>
+    <h6>Sacks: {{ defense.stats.Sack }}</h6>
+    <h6>Points Allowed: {{ defense.stats.PtsAllowed }}</h6>
+    <h6>Return Touchdowns: {{ defense.stats.RetTD }}</h6>
+    <h6>Touchdowns: {{ defense.stats.TD }}</h6>
+    <h6>Rank: #{{ defense.rank }}</h6>
+    <h6>ID: {{ defense.id }}</h6>
+    <br>
+    {% endfor %}
+    {{positions}}
     <h6>{{ scoring_leaders }}</h6>
 </div>
 {% endblock %}

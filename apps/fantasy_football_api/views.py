@@ -211,26 +211,19 @@ def scoring_leaders(request):
     scoring_leaders = response.json()
     print("Scoring Leaders: " + str(scoring_leaders))
     positions = scoring_leaders['positions']
+    qbs = positions['QB']
     wrs = positions['WR']
-    for wr in wrs:
-        player = wr['esbid']
-        status = wr['status']
-        stat_line = wr['statsLine']
-        stats = wr['stats']
-        team = wr['teamAbbr']
-        opponent = wr['opponentTeamAbbr']
-        first_name = wr['firstName']
-        last_name = wr['lastName']
-        full_name = str(first_name) + str(last_name)
-        projected_points = wr['projectedPts']
-        # stat_line = stat_line['stats']
-        print("Stats: " + str(stats))
-        # print("WR: " + str(wr))
-    # print("Wide Receivers: " + str(wrs))
+    rbs = positions['RB']
+    tes = positions['TE']
+    defenses = positions['DEF']
     context = {
-        'player': player,
+        'defenses': defenses,
+        # 'player': player,
         'positions': positions,
+        'qbs': qbs,
         'scoring_leaders': scoring_leaders,
+        'rbs': rbs,
+        'tes': tes,
         'wrs': wrs,
     }
     return render(request, 'fantasy_football_api/scoring_leaders.html', context)
