@@ -205,6 +205,7 @@ def seasonstats(request):
 
 
 def scoring_leaders(request):
+    scoring_leaders = []
     url = ('http://api.fantasy.nfl.com/players/scoringleaders?season=2018&week=1&format=json')
     response = requests.get(url)
     scoring_leaders = response.json()
@@ -227,6 +228,8 @@ def scoring_leaders(request):
         # print("WR: " + str(wr))
     # print("Wide Receivers: " + str(wrs))
     context = {
+        'player': player,
+        'positions': positions,
         'scoring_leaders': scoring_leaders,
         'wrs': wrs,
     }

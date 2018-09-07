@@ -8,6 +8,28 @@
 <a href="/">Go Back</a>
 <div class="container">
     <h1>Scoring Leaders</h1>
+    <h1>Wide Receivers</h1>
+    {% for leader in wrs %}
+        <h2>{{ leader.firstName }} {{ leader.lastName }}</h2>
+        <h6>Team: {{ leader.teamAbbr }}</h6>
+        <h6>Opponent: {{ leader.opponentTeamAbbr }}</h6>
+        <h6>Points: {{ leader.pts }}</h6>
+        <h6>Projected Points: {{ leader.projectedPts }}</h6>
+        <h6>Status: {{ leader.status }}</h6>
+        <h6>Stat Line: {{ leader.statsLine }}</h6>
+        <h6>Receiving TDs: {{ leader.stats.RecTDs }}</h6>
+        <h6>Rushing TDs: {{ leader.stats.RushTDs }}</h6>
+        <h6>Passing Touchdowns: {{ leader.stats.PassTDs }}</h6>
+        <h6>Fumbles Lost: {{ leader.stats.FumLost }}</h6>
+        <h6>Fumbles Recovered For Touchdowns: {{ leader.stats.FumTD }}
+        <h6>Receiving Yards: {{ leader.stats.RecYds }} yards</h6>
+        <h6>Rushing Yards: {{ leader.stats.RushYds }} yards</h6>
+        <h6>2 pt. Conversions: {{ leader.stats.TwoPt }}</h6>
+        <h6>ID: {{ leader.id }}</h6>
+        <h6>Esbid ID: {{ leader.esbid }}</h6>
+        </h6>
+        <br>
+    {% endfor %}
     {{wrs}}
     <h6>{{ scoring_leaders }}</h6>
 </div>
