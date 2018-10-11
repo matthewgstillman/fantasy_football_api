@@ -37,7 +37,6 @@
         {% endfor %}
         {% for keys, values in player_dict.teams.Team_Hella_The_Most_Losing.iteritems %}
             <h1>Team Hella The Most Losing</h1>
-            <h6>{{ values.keys.values }}</h6>
             {% for player in values.values %}
                 <h6>{{ player }}</h6>
             {% endfor %}

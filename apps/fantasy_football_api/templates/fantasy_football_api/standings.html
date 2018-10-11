@@ -32,5 +32,14 @@
 </nav>
 <div class="container">
     <h1>Standings</h1>
+    {% for matchup in matchups %}
+    <h6>Winner: {{ matchup.winner.title }}</h6>
+    {% for team in matchup.teams %}
+    <h6>Live Stats {{ team.liveStats }}</h6>
+    {% endfor %}
+    <h6>{{ matchup }}</h6>
+    {% endfor %}
+    <h6>{{ matchups }}</h6>
+    <h6>{{ standings }}</h6>
 </div>
 {% endblock %}

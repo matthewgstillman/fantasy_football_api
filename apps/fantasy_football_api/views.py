@@ -34,19 +34,12 @@ def index(request):
         scores[week] = response.json()
         scores = scores[week]
         scoreboard = scores['scoreboard']
-        # logoUrl = scoreboard.matchups[0].teams[0].logoUrl
-        # print("Logo URL: " + str(logoUrl))
-        # print(scores)
         matchups = scoreboard['matchups']
-        # print("Matchups" + str(matchups))
         team_array = []
         player_id_array = []
-        #New Crazy Shit!
         if matchups:
             for matchup in matchups:
                 teams = matchup['teams'] 
-                # print("Teams: " + str(teams))
-                # i = 0
                 team = teams[0]['team']
                 print("Team: " + str(team))
                 team_array.append(team)
@@ -69,11 +62,6 @@ def index(request):
                         first_name = players['playerInfo']['players'][0]['player']['firstName']
                         last_name = players['playerInfo']['players'][0]['player']['lastName']
                         player_name = str(first_name) + " " + str(last_name)
-                        print("Player Name: " + str(player_name))
-                        # print ("Team: " + str(team))
-                        # player_id = team
-                        # print("Player ID: " + str(player_id))        
-                        print("Player Dictionary: " + str(player_dict))
                         teams = player_dict['teams']
                         for team in teams:
                             print("Team: " + str(team))
@@ -96,23 +84,23 @@ def boxscore(request):
     scores = {}
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/boxscore', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': 1})
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': 1},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
         scores = response.json()
         print("Scores: " + str(scores))
-        # boxscores = boxscores[week]
-        # scoreboard = scores['scoreboard']
-        # print(scores)
     context = {
         'response': response,
         'scores': scores,
-        # 'scoreboard': scoreboard,
     }
     return render(request, 'fantasy_football_api/boxscore.html', context)
 
 def leaguesettings(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/leagueSettings', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
         league_settings = response.json()
         print("League Settings: " + str(league_settings))
     context = {
@@ -129,9 +117,6 @@ def mostarrests(request):
     for i in mostarrests:
         mostarrests_list.append(i['Name'] + " " + str(i['Team']) + " " + str(i['Position'])+ " " + str(i['Team_city']) + " " + str(i['Team_name']) + " Arrest Count: " + str(i['arrest_count']))
         print (i['Name'] + " " + str(i['Team']) + " " + str(i['Position'])+ " " + str(i['Team_city']) + " " + str(i['Team_name']) + " Arrest Count: " + str(i['arrest_count']))
-    # i = 0
-    # for i in mostarrests[i]:
-    #     print i
     context = {
         'mostarrests': mostarrests,
         'mostarrests_list': mostarrests_list,
@@ -142,7 +127,9 @@ def mostarrests(request):
 def playerinfo(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
-                        params={'leagueId': 446679, 'playerId': 13982,'seasonId': 2018, 'matchupPeriodId': week})
+                        params={'leagueId': 446679, 'playerId': 13982,'seasonId': 2018, 'matchupPeriodId': week},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
         players = response.json()
         first_name = players['playerInfo']['players'][0]['player']['firstName']
         last_name = players['playerInfo']['players'][0]['player']['lastName']
@@ -151,7 +138,6 @@ def playerinfo(request):
         player_name_wiki_content = player_name_wiki.content
         player_name_wiki_images = player_name_wiki.images
         image_urls = player_name_wiki_images
-    # print(first_image_url)
     context = {
         'player_name': player_name,
         'image_urls': image_urls,
@@ -164,7 +150,9 @@ def playerinfo(request):
 def schedule(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/schedule', 
-                        params={'leagueId': 446679, 'seasonId': 2018})
+                        params={'leagueId': 446679, 'seasonId': 2018},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
         print(response.json())
         schedule = response.json()
     context = {
@@ -186,10 +174,8 @@ def seasonstats(request):
         projected_points = i['weekProjectedPts']
         week_pts = i['weekPts']
         season_pts = i['seasonPts']
-        # Player.objects.add_player(name, position, team, projected_points, week_pts,season_pts)
         players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
         print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
-        # print(players)
     context = {
         'all_players': all_players,
         'name': name,
@@ -218,7 +204,6 @@ def scoring_leaders(request):
     defenses = positions['DEF']
     context = {
         'defenses': defenses,
-        # 'player': player,
         'positions': positions,
         'qbs': qbs,
         'scoring_leaders': scoring_leaders,
@@ -230,12 +215,16 @@ def scoring_leaders(request):
 
 
 def team(request):
-    response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
-                    params={'leagueId': 446679, 'seasonId': 2018,'matchupPeriodId': 1})
-    teams = response.json()
-    scoreboard = teams['scoreboard']
-    matchups = scoreboard['matchups']
-    # player_ids = scoreboard['matchups'][0]['teams'][1]['playerIDs']
+    for week in range(1,17): 
+        response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
+        params={'leagueId': 446679, 'seasonId': 2018,'matchupPeriodId': week},
+        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
+        teams = response.json()
+        scoreboard = teams['scoreboard']
+        matchups = scoreboard['matchups']
+        for matchup in matchups:
+            print("Matchup: " + str(matchup))
     context = {
         'matchups': matchups,
         'scoreboard': scoreboard,
@@ -270,20 +259,12 @@ def teamarrests(request):
     teamarrests = first_response.json()
     print(teamarrests)
     teams = ['ari', 'atl','bal','buf','car','chi', 'cin', 'cle','dal','den','det','gb','hou','ind','jax','kc','lac','lar','mia','min','ne','no','oak','phi','pit','sea','sf','tb','was']
-    # print(teams)
     teamarrestsarray = []
     for team in teams:
         url = str(base_url) + str(team)
         print("URL: " + str(url))
         response = requests.get(url)
         team_url = response.json()
-        #Logic I added that didn't work
-        if team_url[0]['Name']:
-            name = team_url[0]['Name']
-            print(name)
-            teamarrestsarray.extend(name)
-        # print("Team URL: " + str(team_url))
-    # print (teamarrestsarray)
     context = {
         'name': name,
         'team_url': team_url,
@@ -297,15 +278,15 @@ def teamarrests(request):
 def standings(request):
     for week in range(1, 17):
         response = requests.get('http://games.espn.com/ffl/api/v2/scoreboard', 
-                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week})
+                        params={'leagueId': 446679, 'seasonId': 2018, 'matchupPeriodId': week},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"}) 
         standings = response.json()
-        # matchups = standings['scoreboard']['matchups']
-        # print matchups
-        # teams = matchups['teams']
-        # print(teams)
-        # print("Week " + str(week) + " " + str(response) + str(standings))
+        # print standings
+        matchups = standings['scoreboard']['matchups']
+        print("Week " + str(week) + " " + str(response) + str(standings))
     context = {
-        # 'matchups': matchups,
+        'matchups': matchups,
         'standings': standings,
     }
     return render(request, 'fantasy_football_api/standings.html', context)
