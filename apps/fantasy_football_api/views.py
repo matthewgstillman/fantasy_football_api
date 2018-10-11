@@ -282,7 +282,6 @@ def standings(request):
                         cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
                  		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"}) 
         standings = response.json()
-        # print standings
         matchups = standings['scoreboard']['matchups']
         print("Week " + str(week) + " " + str(response) + str(standings))
     context = {

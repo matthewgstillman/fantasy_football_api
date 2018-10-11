@@ -31,7 +31,6 @@
 </nav>
 <div class="container">
     <h1>ESPN Fantasy Football API - Player Info</h1>
-    {% comment %}<img src="{{first_image_url}}" alt="{{player_name}}">{% endcomment %}
     <h6>Name : {{ players.playerInfo.players.0.player.firstName }} {{ players.playerInfo.players.0.player.lastName }}</h6>
     <h6>#{{ players.playerInfo.players.0.player.jersey }}</h6>
     <h6>Fantasy Team: {{ players.playerInfo.players.0.team.teamLocation }} {{ players.playerInfo.players.0.team.teamNickname }} ({{ players.playerInfo.players.0.team.teamAbbrev }})</h6>

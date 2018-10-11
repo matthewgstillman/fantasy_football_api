@@ -33,11 +33,17 @@
 <div class="container">
     <h1>Standings</h1>
     {% for matchup in matchups %}
+    {% if matchup.winner != 'Undecided' %}
     <h6>Winner: {{ matchup.winner.title }}</h6>
+    {% endif %}
     {% for team in matchup.teams %}
+    <h2>{{ team.team.teamLocation }} {{ team.team.teamNickname }}</h2>
+    <h6>Points For: {{ team.team.record.pointsFor }}</h6>
+    <h6>Points Against: {{ team.team.record.pointsAgainst }}</h6>
+    <h6>Win Loss Record: {{ team.team.record.overallWins }}-{{ team.team.record.overallLosses }}</h6>
     <h6>Live Stats {{ team.liveStats }}</h6>
     {% endfor %}
-    <h6>{{ matchup }}</h6>
+    <br>
     {% endfor %}
     <h6>{{ matchups }}</h6>
     <h6>{{ standings }}</h6>
