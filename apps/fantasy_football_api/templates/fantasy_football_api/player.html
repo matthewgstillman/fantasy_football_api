@@ -11,12 +11,11 @@
     <h2>Players</h2>
     {% for key, value in teams.iteritems %}
         <h2>{{ key }}</h2>
-        {% for key, value in value.iteritems %}
-            <h6>{{ value }}</h6>
-            <h6>{{  key }}</h6>
-        {% for item in value %}
-            <a href="/player/{{item}}">{{ item }}</a>
+        {% for key, value in value.Players.iteritems %}
+            <a href="/player/{{key}}">{{ value }}</a>
         {% endfor %}
+        {% for key, value in value.iteritems %}
+            <h6>{{ value.player.values }}</h6>
         {% endfor %}
     {% endfor %}
 </div>
