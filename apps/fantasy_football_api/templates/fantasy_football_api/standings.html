@@ -41,7 +41,13 @@
     <h6>Points For: {{ team.team.record.pointsFor }}</h6>
     <h6>Points Against: {{ team.team.record.pointsAgainst }}</h6>
     <h6>Win Loss Record: {{ team.team.record.overallWins }}-{{ team.team.record.overallLosses }}</h6>
-    <h6>Live Stats {{ team.liveStats }}</h6>
+    <h6>Streak Length: {{ team.team.record.streakLength }}</h6>
+    {% if team.team.logoUrl %}
+    <img src="{{ team.team.logoUrl }}" alt="{{ team.team.teamLocation }} {{ team.team.teamNickname }}">
+    {% endif %}
+    <h6>Live Stats: {{ team.liveStats }}</h6>
+    <br>
+    <h6>Team: {{ team }}</h6>
     {% endfor %}
     <br>
     {% endfor %}

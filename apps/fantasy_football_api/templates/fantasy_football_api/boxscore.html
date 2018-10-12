@@ -9,6 +9,8 @@
 <a href="/">Go Back</a>
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
-    {{ scores }}
+    {% for key, value in scores.metadata.iteritems %}
+        <h6>{{ key.title }}: {{ value.title}}</h6>
+    {% endfor %}
 </div>
 {% endblock %}
