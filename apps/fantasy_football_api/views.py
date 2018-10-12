@@ -289,3 +289,40 @@ def standings(request):
         'standings': standings,
     }
     return render(request, 'fantasy_football_api/standings.html', context)
+
+
+def player(request):
+    teams = player_dict['teams']
+    for week in range(1, 17):
+        response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
+                        params={'leagueId': 446679, 'playerId': 13982,'seasonId': 2018, 'matchupPeriodId': week},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
+        player = response.json()
+        print("Player: {}".format(player))
+        print("Teams: {}".format(teams))
+    context = {
+        'player': player,
+        'teams': teams,
+    }
+    return render(request, 'fantasy_football_api/player.html', context)
+
+
+def players(request, id):
+    print(id)
+    for week in range(1, 17):
+        response = requests.get('http://games.espn.com/ffl/api/v2/playerInfo', 
+                        params={'leagueId': 446679, 'playerId': id,'seasonId': 2018, 'matchupPeriodId': week},
+                        cookies={'swid': "1001E5E2-2AE2-4AE8-A464-5B8D985F962D",
+                 		    "espn_s2": "AEBokNq4aPr8liLBu9WPHgD0pqWtp1fiArO46aRrX%2F3139jBoyjjCjpygBuVIOwd3ITU3cJZ9qCmkJS5H%2FIYCq8gm4thQ1ehhUBEKXR7ZJSw47wsVoNmoCIkEvs6llNQKawmn%2FWnw%2Fawy%2B%2BUg1%2FygO8nCzReY5ro5AJXXRFM4t%2FInsIetIJocb1FFEoPW8OFU%2B4mxLcrxAT7jBzNsricQ%2FZbGbcI82nO4NNt8I4GuudLq1hb8xXnjNshQbBE9H79HxnmsMJxxpBytM3%2B9B74ZUGn"})
+        players = response.json()
+        print(players)
+        first_name = players['playerInfo']['players'][0]['player']['firstName']
+        last_name = players['playerInfo']['players'][0]['player']['lastName']
+        player_name = str(first_name) + " " + str(last_name)
+        print("Player Name: {}".format(player_name))
+    context = {
+        'player_name': player_name,
+        'players': players,
+    }
+    return render(request, 'fantasy_football_api/player.html', context)

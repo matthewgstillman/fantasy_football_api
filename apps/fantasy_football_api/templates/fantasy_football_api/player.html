@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Player</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h1>ESPN Fantasy Football API</h1>
+    <h2>Player</h2>
+    {% for key, value in teams.iteritems %}
+        <h2>{{ key }}</h2>
+        {% for key, value in value.iteritems %}
+            <h6>{{ value }}</h6>
+            <h6>{{  key }}</h6>
+        {% for item in value %}
+            <a href="/player/{{item}}">{{ item }}</a>
+        {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    <h6>{{ player }}</h6>
+    <h6>{{ teams }}</h6>
+</div>
+{% endblock %}
