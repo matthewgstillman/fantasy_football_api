@@ -9,6 +9,17 @@
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
     <h2>Players</h2>
-    <h6>{{ players }}</h6>
+    <h1>{{ players.playerInfo.players.0.player.firstName }} {{ players.playerInfo.players.0.player.lastName }}</h1>
+    <h6>#{{ players.playerInfo.players.0.player.jersey }}</h6>
+    <img src="{{ players.playerInfo.players.0.team.logoUrl }}"></img>
+    <h3>Fantasy Team: {{ players.playerInfo.players.0.team.teamLocation }} {{ players.playerInfo.players.0.team.teamNickname }} ({{ players.playerInfo.players.0.team.teamAbbrev }})</h3>
+    <h6>Draft Rank: {{ players.playerInfo.players.0.player.draftRank }}</h6>
+    <h6>Percent Owned: {{ players.playerInfo.players.0.player.percentOwned }}%</h6>
+    <h6>Percent Started: {{ players.playerInfo.players.0.player.percentStarted }}%</h6>
+    <h6>Droppable: {{ players.playerInfo.players.0.player.droppable }}</h6>
+    <h6>Health Status: {{ players.playerInfo.players.0.player.healthStatus }}</h6>
+    <h6>Active: {{ players.playerInfo.players.0.player.isActive }}</h6>
+    <h6>Pro Team ID: {{ players.playerInfo.players.0.player.proTeamId }}</h6>
+    <h6>Value: {{ players.playerInfo.players.0.player.value }}</h6>
 </div>
 {% endblock %}

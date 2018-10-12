@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container">
     <h1>ESPN Fantasy Football API</h1>
-    <h2>Player</h2>
+    <h2>Players</h2>
     {% for key, value in teams.iteritems %}
         <h2>{{ key }}</h2>
         {% for key, value in value.iteritems %}
@@ -19,7 +19,5 @@
         {% endfor %}
         {% endfor %}
     {% endfor %}
-    <h6>{{ player }}</h6>
-    <h6>{{ teams }}</h6>
 </div>
 {% endblock %}

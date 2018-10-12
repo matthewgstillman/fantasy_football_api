@@ -162,32 +162,33 @@ def schedule(request):
 
 
 def seasonstats(request):
-    all_players = Player.objects.all()
-    response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&week=1&format=json')
-    season_stats = response.json()
-    print(season_stats)
-    players = []
-    for i in season_stats['players']:
-        name = i['name']
-        position = i['position']
-        team = i['teamAbbr']
-        projected_points = i['weekProjectedPts']
-        week_pts = i['weekPts']
-        season_pts = i['seasonPts']
-        players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
-        print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
-    context = {
-        'all_players': all_players,
-        'name': name,
-        'players': players,
-        'position': position,
-        'projected_points': projected_points,
-        'season_stats': season_stats,
-        'season_pts': season_pts,
-        'team': team,
-        'week_pts': week_pts,
-    }
-    return render(request, 'fantasy_football_api/seasonstats.html', context)
+    for week in range(1,17):
+        all_players = Player.objects.all()
+        response = requests.get('http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&week=1&format=json')
+        season_stats = response.json()
+        print(season_stats)
+        players = []
+        for i in season_stats['players']:
+            name = i['name']
+            position = i['position']
+            team = i['teamAbbr']
+            projected_points = i['weekProjectedPts']
+            week_pts = i['weekPts']
+            season_pts = i['seasonPts']
+            players.append(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
+            print(str(name) + " - " + str(position) + " - " + str(team) + " - Projected Weekly Points: " + str(projected_points) + " - Points Scored: " + str(week_pts) + " - Season Points: " + str(season_pts))
+        context = {
+            'all_players': all_players,
+            'name': name,
+            'players': players,
+            'position': position,
+            'projected_points': projected_points,
+            'season_stats': season_stats,
+            'season_pts': season_pts,
+            'team': team,
+            'week_pts': week_pts,
+        }
+        return render(request, 'fantasy_football_api/seasonstats.html', context)
 
 
 def scoring_leaders(request):
@@ -321,8 +322,8 @@ def players(request, id):
         last_name = players['playerInfo']['players'][0]['player']['lastName']
         player_name = str(first_name) + " " + str(last_name)
         print("Player Name: {}".format(player_name))
-    context = {
-        'player_name': player_name,
-        'players': players,
-    }
-    return render(request, 'fantasy_football_api/player.html', context)
+        context = {
+            'player_name': player_name,
+            'players': players,
+        }
+        return render(request, 'fantasy_football_api/players.html', context)
